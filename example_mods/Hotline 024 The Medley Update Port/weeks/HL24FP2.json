@@ -1,0 +1,60 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"sugarcrush",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			],
+			false
+		],
+		[
+			"smokebomb",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"overdrive",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"expurgated",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "HL24FP2",
+	"hiddenUntilUnlocked": false
+}

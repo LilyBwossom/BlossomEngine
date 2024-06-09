@@ -1,0 +1,18 @@
+{
+	"song": {
+		"speed": 2.7,
+		"stage": "momogogo",
+		"player1": "gogo",
+		"player2": "momo",
+		"player3": null,
+		"events": [],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-empty",
+		"bpm": 125,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Soda Disco Funk"
+	}
+}

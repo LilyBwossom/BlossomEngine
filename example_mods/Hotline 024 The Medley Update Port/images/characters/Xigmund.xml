@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Xigmund.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="XigDown0000" x="0" y="0" width="921" height="819" frameX="-1" frameY="-10" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigDown0001" x="0" y="0" width="921" height="819" frameX="-1" frameY="-10" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigDown0002" x="921" y="0" width="919" height="828" frameX="-2" frameY="-3" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigDown0003" x="921" y="0" width="919" height="828" frameX="-2" frameY="-3" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigDown0004" x="1840" y="0" width="923" height="807" frameX="0" frameY="-1" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigDown0005" x="1840" y="0" width="923" height="807" frameX="0" frameY="-1" frameWidth="923" frameHeight="831"/>
+	<SubTexture name="XigIdle0000" x="1840" y="807" width="850" height="534" frameX="-17" frameY="-52" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigIdle0001" x="1840" y="807" width="850" height="534" frameX="-17" frameY="-52" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigIdle0002" x="0" y="1341" width="860" height="556" frameX="-12" frameY="-39" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigIdle0003" x="0" y="1341" width="860" height="556" frameX="-12" frameY="-39" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigIdle0004" x="860" y="1341" width="885" height="614"/>
+	<SubTexture name="XigIdle0005" x="860" y="1341" width="885" height="614"/>
+	<SubTexture name="XigIdle0006" x="1745" y="1341" width="880" height="600" frameX="-2" frameY="-4" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigIdle0007" x="1745" y="1341" width="880" height="600" frameX="-2" frameY="-4" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigLeft0000" x="1745" y="1941" width="915" height="846" frameX="0" frameY="-2" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0001" x="1745" y="1941" width="915" height="846" frameX="0" frameY="-2" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0002" x="2763" y="0" width="914" height="850" frameX="-3" frameY="0" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0003" x="2763" y="0" width="914" height="850" frameX="-3" frameY="0" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0004" x="2690" y="850" width="920" height="826" frameX="-10" frameY="-12" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0005" x="2690" y="850" width="920" height="826" frameX="-10" frameY="-12" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0006" x="2660" y="1676" width="922" height="811" frameX="-13" frameY="-19" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigLeft0007" x="2660" y="1676" width="922" height="811" frameX="-13" frameY="-19" frameWidth="942" frameHeight="850"/>
+	<SubTexture name="XigRight0000" x="0" y="2487" width="849" height="533" frameX="-36" frameY="-31" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0001" x="0" y="2487" width="849" height="533" frameX="-36" frameY="-31" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0002" x="849" y="2487" width="844" height="523" frameX="-36" frameY="-36" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0003" x="849" y="2487" width="844" height="523" frameX="-36" frameY="-36" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0004" x="2660" y="2487" width="861" height="560" frameX="-18" frameY="-18" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0005" x="2660" y="2487" width="861" height="560" frameX="-18" frameY="-18" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0006" x="0" y="3047" width="869" height="576" frameX="-10" frameY="-10" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigRight0007" x="0" y="3047" width="869" height="576" frameX="-10" frameY="-10" frameWidth="885" frameHeight="596"/>
+	<SubTexture name="XigUp0000" x="869" y="3047" width="885" height="614"/>
+	<SubTexture name="XigUp0001" x="869" y="3047" width="885" height="614"/>
+	<SubTexture name="XigUp0002" x="1754" y="3047" width="875" height="588" frameX="-5" frameY="-15" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigUp0003" x="1754" y="3047" width="875" height="588" frameX="-5" frameY="-15" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigUp0004" x="2629" y="3047" width="839" height="512" frameX="-23" frameY="-63" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigUp0005" x="2629" y="3047" width="839" height="512" frameX="-23" frameY="-63" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigUp0006" x="0" y="850" width="823" height="481" frameX="-31" frameY="-82" frameWidth="885" frameHeight="614"/>
+	<SubTexture name="XigUp0007" x="0" y="850" width="823" height="481" frameX="-31" frameY="-82" frameWidth="885" frameHeight="614"/>
+</TextureAtlas>

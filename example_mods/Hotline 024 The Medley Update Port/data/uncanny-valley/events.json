@@ -1,0 +1,18 @@
+{
+	"song": {
+		"speed": 2.7,
+		"stage": "ena",
+		"player1": "ena",
+		"player2": "fabs",
+		"player3": null,
+		"events": [],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-empty",
+		"bpm": 170,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Uncanny Valley"
+	}
+}

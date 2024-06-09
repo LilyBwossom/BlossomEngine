@@ -1,0 +1,18 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "expurgated",
+		"player1": "bf",
+		"player2": "nikku",
+		"player3": null,
+		"events": [],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 192,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "EXPURGATED"
+	}
+}

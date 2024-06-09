@@ -1,0 +1,78 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"extraterrestrial",
+			"xigmund",
+			[
+				146,
+				113,
+				253
+			],
+			false
+		],
+		[
+			"satellite-picnic",
+			"boo",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"sussy-pussy",
+			"tomongus",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"close-chuckle",
+			"charlie",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"deep-poems",
+			"monika",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"majin",
+			"mazin",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "HL24SC3",
+	"hiddenUntilUnlocked": false
+}

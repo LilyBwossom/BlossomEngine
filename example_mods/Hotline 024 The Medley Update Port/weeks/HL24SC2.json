@@ -1,0 +1,33 @@
+{
+	"storyName": "",
+	"difficulties": "Easy,Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"uncanny-valley",
+			"ena",
+			[
+				146,
+				113,
+				253
+			],
+			false
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "HL24SC2",
+	"hiddenUntilUnlocked": false
+}

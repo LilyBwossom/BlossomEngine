@@ -1,0 +1,5 @@
+Hotline 024 Update PE Port 
+Nickobelit::Nickobelit:: Optimizé y mejoré el Port para Android y PC (Encerio fue un Gran Trabajo) :)::https://youtube.com/c/Nickobelit::0xFFFF0000
+Razalsy::razalsy:: Usé gran parte de el código de su Port en éste (Gran Trabajo)::https://youtube.com/channel/UC2MvCkUwyK0kYNUmywPU9Jw::f7adf0
+Asbel-Sen::asbel:: Codeó el Lua de las Cutscenes (Un Capo)::https://youtube.com/channel/UCnTm0Ue0F1cDFN7maLblkOg::800080
+Victor Productions::victor::Optimizó la mayoría de sprites de el Port (Si le sabes)::https://youtube.com/channel/UCYjoaOOlB335nEkMnz5A9kg::0xFF0083ff

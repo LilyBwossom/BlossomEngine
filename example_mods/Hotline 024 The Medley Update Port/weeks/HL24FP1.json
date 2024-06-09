@@ -1,0 +1,69 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"broadcasting",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			],
+			false
+		],
+		[
+			"mirror-magic",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"fandomania",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"killer-queen",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"hyperfunk",
+			"nikku",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "HL24FP1",
+	"hiddenUntilUnlocked": false
+}

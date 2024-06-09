@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="iconGrid.png">
+	<SubTexture name="nikkuog0000" x="0" y="0" width="278" height="720" frameX="0" frameY="0" frameWidth="278" frameHeight="720" />
+	<SubTexture name="nikku-240000" x="279" y="0" width="412" height="720" frameX="50" frameY="0" frameWidth="412" frameHeight="720" />
+	<SubTexture name="nikku-jojo0000" x="691" y="0" width="393" height="720" frameX="50" frameY="0" frameWidth="393" frameHeight="720" />
+	<SubTexture name="nikku-classic0000" x="1085" y="0" width="267" height="720" frameX="0" frameY="0" frameWidth="267" frameHeight="720" />
+</TextureAtlas>

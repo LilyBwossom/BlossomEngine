@@ -1,0 +1,1 @@
+To Have a New title Logo and Bump Just Drag and Drop The titleEnter.png and .xml as well as the logoBumpin.png and .xml and replace the logo and title with these in assets/images

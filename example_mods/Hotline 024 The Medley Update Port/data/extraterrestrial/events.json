@@ -1,0 +1,18 @@
+{
+	"song": {
+		"speed": 2.6,
+		"stage": "xigmund",
+		"player1": "nikku-ship",
+		"player2": "xigmund",
+		"player3": null,
+		"events": [],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-empty",
+		"bpm": 134,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Extraterrestrial"
+	}
+}

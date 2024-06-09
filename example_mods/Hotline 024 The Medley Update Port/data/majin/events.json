@@ -1,0 +1,59 @@
+{
+	"song": {
+		"speed": 2.8,
+		"stage": "mazin-mall",
+		"player1": "bf-mazin-mall",
+		"player2": "mazin-tv",
+		"player3": null,
+		"events": [
+			[
+				37209.3023255814,
+				[
+					[
+						"Camera Zoom Speed",
+						"4",
+						"1"
+					]
+				]
+			],
+			[
+				52093.0232558139,
+				[
+					[
+						"Camera Zoom Speed",
+						"",
+						""
+					]
+				]
+			],
+			[
+				119069.76744186,
+				[
+					[
+						"Camera Zoom Speed",
+						"4",
+						"1"
+					]
+				]
+			],
+			[
+				148837.209302326,
+				[
+					[
+						"Camera Zoom Speed",
+						"",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-empty",
+		"bpm": 129,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "Majin"
+	}
+}

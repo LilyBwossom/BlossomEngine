@@ -1,0 +1,42 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"soda-disco-funk",
+			"momo",
+			[
+				146,
+				113,
+				253
+			],
+			false
+		],
+		[
+			"armageddon",
+			"rude1",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "HL24EX",
+	"hiddenUntilUnlocked": false
+}

@@ -1,0 +1,18 @@
+{
+	"song": {
+		"speed": 2.8,
+		"stage": "amarged",
+		"player1": "nikku_date",
+		"player2": "rude1_date",
+		"player3": null,
+		"events": [],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-empty",
+		"bpm": 174,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Armageddon"
+	}
+}
