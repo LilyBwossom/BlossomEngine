@@ -1,0 +1,23 @@
+{
+    "categories": [
+        {
+            "name": "hotline-024",
+            "icon": "nikku",
+            "color": [
+                135,
+                206,
+                250
+            ],
+            "weeks": [
+                "HL24FP1",
+                "HL24FP2",
+                "HL24EX",
+                "HL24CV",
+                "HL24CV1",
+                "HL24CV2",
+                "HL24CV3",
+                "HL24SC404"
+            ]
+        }
+    ]
+}
