@@ -390,24 +390,23 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		textBG.alpha = 0.6;
 		add(textBG);
 
-		var selectedCategoryText:Alphabet = new Alphabet(0, 50, "Selected Category", true);
+		var selectedCategoryText:Alphabet = new Alphabet(0, 10, "Selected Category", true);
 		selectedCategoryText.scaleX = 0.5;
 		selectedCategoryText.scaleY = 0.5;
 		selectedCategoryText.screenCenter(X);
 		add(selectedCategoryText);
 
-		var selectedCategoryTextColon:Alphabet = new Alphabet(0, -110, ":", false);
+		var selectedCategoryTextColon:Alphabet = new Alphabet(0, -10, ":", false);
 		selectedCategoryTextColon.scaleX = 0.5;
 		selectedCategoryTextColon.scaleY = 0.5;
 		selectedCategoryTextColon.screenCenter(X);
 		selectedCategoryTextColon.x += 210;
 		add(selectedCategoryTextColon);
 
-		currentCategoryName = new Alphabet(0, -25, "", false);
-		currentCategoryName.screenCenter(X);
-		currentCategoryName.alignment = CENTERED;
+		currentCategoryName = new Alphabet(0, 25, "", false);
 		currentCategoryName.scaleX = 0.5;
 		currentCategoryName.scaleY = 0.5;
+		currentCategoryName.screenCenter(X);
 		add(currentCategoryName);
 
 		super.create();
@@ -429,6 +428,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 	override function update(elapsed:Float)
 	{
 		currentCategoryName.text = categories[curSelected].name;
+		currentCategoryName.screenCenter(X);
 
 		if (FlxG.sound.music.volume < 0.7)
 		{
