@@ -316,13 +316,11 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		];
 		for (mod in Mods.getModDirectories())
 		{
-			trace(Paths.mods(mod) + '/categories');
 			var categoriesFolder:String = Paths.mods(mod) + '/categories';
 			if (FileSystem.exists(categoriesFolder))
 			{
 				for (jsonFile in FileSystem.readDirectory(categoriesFolder))
 				{
-					trace(File.getContent(categoriesFolder + '/' + jsonFile));
 					var jsonCategories:CategoriesMetaData = tjson.TJSON.parse(File.getContent(categoriesFolder + '/' + jsonFile));
 					for (category in jsonCategories.categories)
 					{
@@ -351,11 +349,6 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 
 		for (i in 0...categories.length)
 		{
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
 			var categoryText:Alphabet = new Alphabet(90, 320, categories[i].name, true);
 			categoryText.isMenuItem = true;
 			categoryText.targetY = i - curSelected;
