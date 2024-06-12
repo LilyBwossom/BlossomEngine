@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 	public var cpuControlled:Bool = false;
 
 	public static var opponentChart:Bool = false;
-	public static var doubleChartType:String = 'play all notes';
+	public static var doubleChartType:String = 'prioritize note amount';
 	public static var doubleChart:Bool = false;
 
 	public var practiceMode:Bool = false;
@@ -278,6 +278,9 @@ class PlayState extends MusicBeatState
 	public var startCallback:Void->Void = null;
 	public var endCallback:Void->Void = null;
 
+	// this bool determines wether are playing as the opponent or the player (this is is used for the doubleChart option)
+	public static var opponentIsPlaying:Bool = false;
+
 	override public function create()
 	{
 		// trace('Playback Rate: ' + playbackRate);
@@ -304,7 +307,7 @@ class PlayState extends MusicBeatState
 		practiceMode = ClientPrefs.getGameplaySetting('practice');
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay');
 		opponentChart = ClientPrefs.getGameplaySetting('opponentplay', false);
-		doubleChartType = ClientPrefs.getGameplaySetting('doubleplaytype', 'play all notes');
+		doubleChartType = ClientPrefs.getGameplaySetting('doubleplaytype', 'prioritize note amount');
 		doubleChart = ClientPrefs.getGameplaySetting('doubleplay', false);
 		guitarHeroSustains = ClientPrefs.data.guitarHeroSustains;
 
@@ -559,7 +562,7 @@ class PlayState extends MusicBeatState
 
 		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'healthBar', function() return health, 0, 2);
 		healthBar.screenCenter(X);
-		healthBar.leftToRight = false;
+		healthBar.leftToRight = opponentChart;
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
@@ -1032,7 +1035,7 @@ class PlayState extends MusicBeatState
 			{
 				setOnScripts('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
 				setOnScripts('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-				// if(ClientPrefs.data.middleScroll) opponentStrums.members[i].visible = false;
+				// if((ClientPrefs.data.middleScroll || doubleChart)) opponentStrums.members[i].visible = false;
 			}
 
 			startedCountdown = true;
@@ -1094,7 +1097,7 @@ class PlayState extends MusicBeatState
 
 				notes.forEachAlive(function(note:Note)
 				{
-					if (ClientPrefs.data.opponentStrums || note.mustPress)
+					if ((ClientPrefs.data.opponentStrums && !doubleChart) || note.mustPress)
 					{
 						note.copyAlpha = false;
 						note.alpha = note.multAlpha;
@@ -1414,13 +1417,47 @@ class PlayState extends MusicBeatState
 
 		for (section in noteData)
 		{
+			// this sorts the notes for each section on which side they should go for doubleplay
+			var mustHitBfSide:Bool = true;
+			if (doubleChart)
+			{
+				var bfNoteAmount:Int = 0;
+				var dadNoteAmount:Int = 0;
+				var notes = section.sectionNotes.copy();
+				for (note in notes)
+				{
+					if (section.mustHitSection ? note[1] <= 3 : note[1] > 3)
+					{
+						bfNoteAmount++;
+					}
+					else
+					{
+						dadNoteAmount++;
+					}
+				}
+				switch doubleChartType
+				{
+					case 'prioritize note amount':
+						mustHitBfSide = bfNoteAmount >= dadNoteAmount;
+					case 'prioritize player notes':
+						mustHitBfSide = bfNoteAmount > 0;
+					case 'prioritize opponent notes':
+						mustHitBfSide = dadNoteAmount == 0;
+				}
+			}
+
 			for (songNotes in section.sectionNotes)
 			{
 				var daStrumTime:Float = songNotes[0];
 				var daNoteData:Int = Std.int(songNotes[1] % 4);
 				var gottaHitNote:Bool = section.mustHitSection;
 
-				if (songNotes[1] > 3)
+				// this puts the notes on the other side for opponentplay
+				if (songNotes[1] > 3 && !opponentChart)
+				{
+					gottaHitNote = !section.mustHitSection;
+				}
+				else if (songNotes[1] <= 3 && opponentChart)
 				{
 					gottaHitNote = !section.mustHitSection;
 				}
@@ -1431,14 +1468,29 @@ class PlayState extends MusicBeatState
 				else
 					oldNote = null;
 
+				// this puts the notes on the other side for doubleplay
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
-				swagNote.mustPress = gottaHitNote;
+				swagNote.noteOriginDad = !gottaHitNote;
+				if (doubleChart)
+				{
+					swagNote.mustPress = true;
+					var ignoreNote:Bool = (doubleChartType != 'play all notes') ? mustHitBfSide != gottaHitNote : false;
+					if (ignoreNote)
+					{
+						swagNote.mustPress = false;
+						swagNote.noteOriginDad = gottaHitNote;
+					}
+				}
+				else
+				{
+					swagNote.mustPress = gottaHitNote;
+				}
+
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1] < 4));
 				swagNote.noteType = songNotes[3];
 				if (!Std.isOfType(songNotes[3], String))
 					swagNote.noteType = ChartingState.noteTypeList[songNotes[3]]; // Backward compatibility + compatibility with Week 7 charts
-
 				swagNote.scrollFactor.set();
 
 				unspawnNotes.push(swagNote);
@@ -1453,7 +1505,24 @@ class PlayState extends MusicBeatState
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
 						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote), daNoteData, oldNote, true);
-						sustainNote.mustPress = gottaHitNote;
+
+						// this puts the sustain notes on the other side for doubleplay
+						sustainNote.noteOriginDad = !gottaHitNote;
+						if (doubleChart)
+						{
+							sustainNote.mustPress = true;
+							var ignoreNote:Bool = (doubleChartType != 'play all notes') ? mustHitBfSide != gottaHitNote : false;
+							if (ignoreNote)
+							{
+								sustainNote.mustPress = false;
+								sustainNote.noteOriginDad = gottaHitNote;
+							}
+						}
+						else
+						{
+							sustainNote.mustPress = gottaHitNote;
+						}
+
 						sustainNote.gfNote = (section.gfSection && (songNotes[1] < 4));
 						sustainNote.noteType = swagNote.noteType;
 						sustainNote.scrollFactor.set();
@@ -1482,7 +1551,7 @@ class PlayState extends MusicBeatState
 
 						if (sustainNote.mustPress)
 							sustainNote.x += FlxG.width / 2; // general offset
-						else if (ClientPrefs.data.middleScroll)
+						else if ((ClientPrefs.data.middleScroll || doubleChart))
 						{
 							sustainNote.x += 310;
 							if (daNoteData > 1) // Up and Right
@@ -1495,7 +1564,7 @@ class PlayState extends MusicBeatState
 				{
 					swagNote.x += FlxG.width / 2; // general offset
 				}
-				else if (ClientPrefs.data.middleScroll)
+				else if ((ClientPrefs.data.middleScroll || doubleChart))
 				{
 					swagNote.x += 310;
 					if (daNoteData > 1) // Up and Right
@@ -1601,7 +1670,7 @@ class PlayState extends MusicBeatState
 
 	private function generateStaticArrows(player:Int):Void
 	{
-		var strumLineX:Float = ClientPrefs.data.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X;
+		var strumLineX:Float = (ClientPrefs.data.middleScroll || doubleChart) ? STRUM_X_MIDDLESCROLL : STRUM_X;
 		var strumLineY:Float = ClientPrefs.data.downScroll ? (FlxG.height - 150) : 50;
 		for (i in 0...4)
 		{
@@ -1609,7 +1678,7 @@ class PlayState extends MusicBeatState
 			var targetAlpha:Float = 1;
 			if (player < 1)
 			{
-				if (!ClientPrefs.data.opponentStrums)
+				if (!ClientPrefs.data.opponentStrums || doubleChart)
 					targetAlpha = 0;
 				else if (ClientPrefs.data.middleScroll)
 					targetAlpha = 0.35;
@@ -1627,10 +1696,19 @@ class PlayState extends MusicBeatState
 				babyArrow.alpha = targetAlpha;
 
 			if (player == 1)
-				playerStrums.add(babyArrow);
+			{
+				if ((opponentChart ? ClientPrefs.data.middleScroll : true) || doubleChart)
+				{
+					playerStrums.add(babyArrow);
+				}
+				else
+				{
+					opponentStrums.add(babyArrow);
+				}
+			}
 			else
 			{
-				if (ClientPrefs.data.middleScroll)
+				if (ClientPrefs.data.middleScroll || doubleChart)
 				{
 					babyArrow.x += 310;
 					if (i > 1)
@@ -1638,7 +1716,14 @@ class PlayState extends MusicBeatState
 						babyArrow.x += FlxG.width / 2 + 25;
 					}
 				}
-				opponentStrums.add(babyArrow);
+				if ((opponentChart ? ClientPrefs.data.middleScroll : true) || doubleChart)
+				{
+					opponentStrums.add(babyArrow);
+				}
+				else
+				{
+					playerStrums.add(babyArrow);
+				}
 			}
 
 			strumLineNotes.add(babyArrow);
@@ -1763,6 +1848,23 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		// sets the opponentIsPlaying bool to the right side so the game can display the right animations
+		if (doubleChart)
+		{
+			if (SONG.notes != null)
+			{
+				opponentIsPlaying = !SONG.notes[curSection].mustHitSection;
+			}
+		}
+		else if (opponentChart)
+		{
+			opponentIsPlaying = true;
+		}
+		else
+		{
+			opponentIsPlaying = false;
+		}
+
 		if (!inCutscene && !paused && !freezeCamera)
 		{
 			FlxG.camera.followLerp = 2.4 * cameraSpeed * playbackRate;
@@ -2008,8 +2110,16 @@ class PlayState extends MusicBeatState
 			healthBar.bounds.min, healthBar.bounds.max, 0, 100);
 		healthBar.percent = (newPercent != null ? newPercent : 0);
 
-		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; // If health is under 20%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
-		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; // If health is over 80%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+		if (opponentChart)
+		{
+			iconP1.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; // If health is over 80%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+			iconP2.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; // If health is under 20%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+		}
+		else
+		{
+			iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; // If health is under 20%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+			iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; // If health is over 80%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+		}
 		return health;
 	}
 
@@ -3145,6 +3255,15 @@ class PlayState extends MusicBeatState
 
 		// play character anims
 		var char:Character = boyfriend;
+		if (doubleChart)
+		{
+			char = note.noteOriginDad ? dad : boyfriend;
+		}
+		else if (opponentIsPlaying)
+		{
+			char = dad;
+		}
+
 		if ((note != null && note.gfNote) || (SONG.notes[curSection] != null && SONG.notes[curSection].gfSection))
 			char = gf;
 
@@ -3180,11 +3299,21 @@ class PlayState extends MusicBeatState
 		if (songName != 'tutorial')
 			camZooming = true;
 
+		var opponentChar:Character = dad;
+		if (doubleChart)
+		{
+			opponentChar = note.noteOriginDad ? boyfriend : dad;
+		}
+		else if (opponentIsPlaying)
+		{
+			opponentChar = boyfriend;
+		}
+
 		if (note.noteType == 'Hey!' && dad.animOffsets.exists('hey'))
 		{
-			dad.playAnim('hey', true);
-			dad.specialAnim = true;
-			dad.heyTimer = 0.6;
+			opponentChar.playAnim('hey', true);
+			opponentChar.specialAnim = true;
+			opponentChar.heyTimer = 0.6;
 		}
 		else if (!note.noAnimation)
 		{
@@ -3194,15 +3323,14 @@ class PlayState extends MusicBeatState
 				if (SONG.notes[curSection].altAnim && !SONG.notes[curSection].gfSection)
 					altAnim = '-alt';
 
-			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length - 1, note.noteData)))] + altAnim;
 			if (note.gfNote)
-				char = gf;
+				opponentChar = gf;
 
-			if (char != null)
+			if (opponentChar != null)
 			{
-				char.playAnim(animToPlay, true);
-				char.holdTimer = 0;
+				opponentChar.playAnim(animToPlay, true);
+				opponentChar.holdTimer = 0;
 			}
 		}
 
@@ -3272,6 +3400,15 @@ class PlayState extends MusicBeatState
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length - 1, note.noteData)))];
 
 			var char:Character = boyfriend;
+			if (doubleChart)
+			{
+				char = note.noteOriginDad ? dad : boyfriend;
+			}
+			else if (opponentIsPlaying)
+			{
+				char = dad;
+			}
+
 			var animCheck:String = 'hey';
 			if (note.gfNote)
 			{
@@ -3759,9 +3896,13 @@ class PlayState extends MusicBeatState
 	function strumPlayAnim(isDad:Bool, id:Int, time:Float)
 	{
 		var spr:StrumNote = null;
-		if (isDad)
+		if (isDad && opponentIsPlaying)
 		{
 			spr = opponentStrums.members[id];
+		}
+		else if (isDad)
+		{
+			spr = strumLineNotes.members[id];
 		}
 		else
 		{

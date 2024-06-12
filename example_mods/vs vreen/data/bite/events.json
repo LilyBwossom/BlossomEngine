@@ -1,0 +1,243 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Change Character",
+						"BF",
+						"pewdsintro"
+					],
+					[
+						"Play Animation",
+						"intro",
+						"BF"
+					]
+				],
+				null,
+				""
+			],
+			[
+				142.857142857143,
+				[
+					[
+						"Subtitles",
+						"hows it going bros",
+						""
+					]
+				]
+			],
+			[
+				857.142857142857,
+				[
+					[
+						"Subtitles",
+						"my names",
+						""
+					]
+				]
+			],
+			[
+				1142.85714285714,
+				[
+					[
+						"Subtitles",
+						"pewdiepie",
+						""
+					]
+				]
+			],
+			[
+				2285.71428571429,
+				[
+					[
+						"Subtitles",
+						"so many of you bros",
+						""
+					]
+				]
+			],
+			[
+				3500,
+				[
+					[
+						"Subtitles",
+						"have suggested this game",
+						""
+					]
+				]
+			],
+			[
+				5285.71428571429,
+				[
+					[
+						"Subtitles",
+						"all the bros",
+						""
+					]
+				]
+			],
+			[
+				5714.28571428571,
+				[
+					[
+						"Subtitles",
+						"in the comments",
+						""
+					]
+				]
+			],
+			[
+				7285.71428571429,
+				[
+					[
+						"Subtitles",
+						"everyone",
+						""
+					]
+				]
+			],
+			[
+				8571.42857142857,
+				[
+					[
+						"Subtitles",
+						"everyone",
+						""
+					]
+				]
+			],
+			[
+				9714.28571428571,
+				[
+					[
+						"Subtitles",
+						"my mom called me",
+						""
+					]
+				]
+			],
+			[
+				11000,
+				[
+					[
+						"Subtitles",
+						"shes like",
+						""
+					]
+				]
+			],
+			[
+				11571.4285714286,
+				[
+					[
+						"Subtitles",
+						"shes like",
+						""
+					]
+				]
+			],
+			[
+				12000,
+				[
+					[
+						"Subtitles",
+						"why havent you",
+						""
+					]
+				]
+			],
+			[
+				12642.8571428571,
+				[
+					[
+						"Subtitles",
+						"played this game yet",
+						""
+					]
+				]
+			],
+			[
+				13428.5714285714,
+				[
+					[
+						"Subtitles",
+						"im serious",
+						""
+					]
+				]
+			],
+			[
+				14142.8571428571,
+				[
+					[
+						"Subtitles",
+						"I wish i was joking",
+						""
+					]
+				]
+			],
+			[
+				17571.4285714286,
+				[
+					[
+						"Change Character",
+						"BF",
+						"pewds"
+					]
+				]
+			],
+			[
+				73142.8571428572,
+				[
+					[
+						"Change Character",
+						"1",
+						"penguin"
+					]
+				]
+			],
+			[
+				73145.8333333334,
+				[
+					[
+						"Flash Camera",
+						"0.5",
+						""
+					]
+				]
+			],
+			[
+				144000,
+				[
+					[
+						"Play Animation",
+						"scare",
+						"BF"
+					]
+				]
+			],
+			[
+				145142.857142857,
+				[
+					[
+						"Change Character",
+						"1",
+						"blank"
+					]
+				]
+			],
+			[
+				145145.833333333,
+				[
+					[
+						"Flash Camera",
+						"0.5",
+						""
+					]
+				]
+			]
+		]
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "Vs Vloo Guy Port",
+	"description": "Todas las canciones en freeplay",
+	"restart":true,
+	"runsGlobally": false,
+	"color": [0, 0, 140]
+}

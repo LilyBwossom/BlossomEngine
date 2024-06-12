@@ -102,122 +102,122 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		/*
 			switch (WeekName)
 			{
-				case 'vanilla':
+				case "vanilla":
 					// there is probably a better way to add all vanilla songs but this will do for now
 					addSongs(instance, [
-						'Tutorial', 'Bopeebo', 'Fresh', 'Dad Battle',          'Spookeez',  'South', 'Monster',   'Pico', 'Philly Nice', 'Blammed', 'Satin Panties',
-							'High',    'Milf', 'Cocoa',     'Eggnog', 'Winter Horrorland', 'Senpai',   'Roses', 'Thorns',         'Ugh',    'Guns',        'Stress'
+						"Tutorial", "Bopeebo", "Fresh", "Dad Battle",          "Spookeez",  "South", "Monster",   "Pico", "Philly Nice", "Blammed", "Satin Panties",
+							"High",    "Milf", "Cocoa",     "Eggnog", "Winter Horrorland", "Senpai",   "Roses", "Thorns",         "Ugh",    "Guns",        "Stress"
 					]);
-				case 'b-side':
+				case "b-side":
 					addSongs(instance, [
-						'Bopeebo-b', 'Fresh-b', 'Dadbattle-b', 'spookeez-b', 'South-b', 'Pico-b', 'Philly-b', 'Blammed-b', 'Satin-Panties-b', 'High-b', 'Milf-b',
-						'Cocoa-b', 'Eggnog-b', 'Winter-Horrorland-b', 'Senpai-b', 'Roses-b', 'Thorns-b'
+						"Bopeebo-b", "Fresh-b", "Dadbattle-b", "spookeez-b", "South-b", "Pico-b", "Philly-b", "Blammed-b", "Satin-Panties-b", "High-b", "Milf-b",
+						"Cocoa-b", "Eggnog-b", "Winter-Horrorland-b", "Senpai-b", "Roses-b", "Thorns-b"
 					]);
-				case 'erect':
+				case "erect":
 					addSongs(instance, [
-						'dadbattle-erect',
-						'south-erect',
-						'blammed-erect',
-						'senpai-erect',
-						'roses-erect',
-						'thorns-brightfyre',
-						'thorns-leebert'
+						"dadbattle-erect",
+						"south-erect",
+						"blammed-erect",
+						"senpai-erect",
+						"roses-erect",
+						"thorns-brightfyre",
+						"thorns-leebert"
 					]);
-				case 'creepypasta':
+				case "creepypasta":
 					addSongs(instance, [
-						'too-slow-fatass-remix',
-						'too-slow-old',
-						'monochrome-fatass-metal-cover',
-						'triple-trouble-fatass-metal-cover',
-						'execution-old',
-						'execution-remix',
-						'sunshine-remix'
+						"too-slow-fatass-remix",
+						"too-slow-old",
+						"monochrome-fatass-metal-cover",
+						"triple-trouble-fatass-metal-cover",
+						"execution-old",
+						"execution-remix",
+						"sunshine-remix"
 					]);
-				case 'sonic':
-					addSongs(instance, ['endless-old', 'phantasm', 'Prey', 'pasta-night']);
-					addWeek(instance, 'thriller gen');
-					addWeek(instance, 'replay');
-				case 'smoke-em-out-struggle':
+				case "sonic":
+					addSongs(instance, ["endless-old", "phantasm", "Prey", "pasta-night"]);
+					addWeek(instance, "thriller gen");
+					addWeek(instance, "replay");
+				case "smoke-em-out-struggle":
 					addSongs(instance, [
-						'Headache', 'Nerves', 'Release', 'Fading', 'headache-', 'nerves-', 'release-', 'fading-', 'Good Enough', 'Lover', 'Tug Of War',
-						'Take A Swig of This', 'Animal', 'Dilemma', 'Drowning'
+						"Headache", "Nerves", "Release", "Fading", "headache-", "nerves-", "release-", "fading-", "Good Enough", "Lover", "Tug Of War",
+						"Take A Swig of This", "Animal", "Dilemma", "Drowning"
 					]);
-				case 'miku':
-					addSongs(instance, ['aishite', 'disappearance', 'popipo', 'ievan polkka']);
-				case 'amongus':
-					addWeek(instance, 'redimpostor');
-					addWeek(instance, 'mira');
-					addWeek(instance, 'skeld');
-					addWeek(instance, 'defeat');
-				case 'tricky':
+				case "miku":
+					addSongs(instance, ["aishite", "disappearance", "popipo", "ievan polkka"]);
+				case "amongus":
+					addWeek(instance, "redimpostor");
+					addWeek(instance, "mira");
+					addWeek(instance, "skeld");
+					addWeek(instance, "defeat");
+				case "tricky":
 					addSongs(instance, [
-						'Improbable-Outset',
-						'madness',
-						'hellclown',
-						'expurgation',
-						'Expurgation',
-						'improbable-outset-Neutroa',
-						'madness-Neutroa-Remix',
-						'Expurgation-Neutroa-Remix'
+						"Improbable-Outset",
+						"madness",
+						"hellclown",
+						"expurgation",
+						"Expurgation",
+						"improbable-outset-Neutroa",
+						"madness-Neutroa-Remix",
+						"Expurgation-Neutroa-Remix"
 					]);
-				case 'hank':
-					addSongs(instance, ['accelerant', 'inundation', 'gunfight', 'sacrifice']);
-				case 'mid-fight-masses':
-					addSongs(instance, ['Parish', 'Worship', 'Zavodila', 'Gospel', 'glazomer', 'crescendo']);
-					addWeek(instance, 'vsselever');
-					addWeek(instance, 'vsselever2');
-				case 'sky':
-					addSongs(instance, ['wife-forever', 'sky', 'manifest']);
-				case 'ski':
+				case "hank":
+					addSongs(instance, ["accelerant", "inundation", "gunfight", "sacrifice"]);
+				case "mid-fight-masses":
+					addSongs(instance, ["Parish", "Worship", "Zavodila", "Gospel", "glazomer", "crescendo"]);
+					addWeek(instance, "vsselever");
+					addWeek(instance, "vsselever2");
+				case "sky":
+					addSongs(instance, ["wife-forever", "sky", "manifest"]);
+				case "ski":
 					addSongs(instance, [
-						'Meow',
-						'Foolhardy',
-						'Sporty Ski',
-						'Bopeepow',
-						'Talentless Ski',
-						'No Memes',
-						'Manifest'
+						"Meow",
+						"Foolhardy",
+						"Sporty Ski",
+						"Bopeepow",
+						"Talentless Ski",
+						"No Memes",
+						"Manifest"
 					]);
-				case 'tabi':
-					addSongs(instance, ['my-battle', 'last-chance', 'genocide']);
-				case 'whitty':
-					addSongs(instance, ['lo-fight', 'overhead', 'ballistic-old']);
-					addWeek(instance, 'whitty_aside');
-				case 'fnaf':
-					addWeek(instance, 'week87');
-					addWeek(instance, 'fnaf1');
-					addWeek(instance, 'fnaf2');
-					addWeek(instance, 'fnaf3');
-					addWeek(instance, 'fnaf4');
-					addWeek(instance, 'fnaf5');
-					addWeek(instance, 'vs_vloo');
-					addWeek(instance, 'bite');
-				case 'qt':
-					addWeek(instance, 'QT Week');
-				case 'herobrine':
-					addWeek(instance, 'Herobrine-Week');
-				case 'hex':
-					addWeek(instance, 'HEXTRAVAGANZA');
-					addWeek(instance, 'Encore');
-				case 'indie-cross':
-					addWeek(instance, 'Cuphead-Week');
-					addWeek(instance, 'Sans-Week');
-					addWeek(instance, 'Bendy-Week');
-					addWeek(instance, 'week-sans-freeplay');
-					addWeek(instance, 'BonusSongs-Week');
-					addWeek(instance, 'Nightmare-Week');
-					addWeek(instance, 'secret_songs_week');
-				case 'hotline-024':
-					addWeek(instance, 'HL24FP1');
-					addWeek(instance, 'HL24FP2');
-					addWeek(instance, 'HL24EX');
-					addWeek(instance, 'HL24CV');
-					addWeek(instance, 'HL24SC1');
-					addWeek(instance, 'HL24SC2');
-					addWeek(instance, 'HL24SC3');
-					addWeek(instance, 'HL24SC404');
-				case 'misc':
-					addSongs(instance, ['killer-scream', 'foolhardy', 'run', 'Playtime', 'Atrocity']);
+				case "tabi":
+					addSongs(instance, ["my-battle", "last-chance", "genocide"]);
+				case "whitty":
+					addSongs(instance, ["lo-fight", "overhead", "ballistic-old"]);
+					addWeek(instance, "whitty_aside");
+				case "fnaf":
+					addWeek(instance, "week87");
+					addWeek(instance, "fnaf1");
+					addWeek(instance, "fnaf2");
+					addWeek(instance, "fnaf3");
+					addWeek(instance, "fnaf4");
+					addWeek(instance, "fnaf5");
+					addWeek(instance, "vs_vloo");
+					addWeek(instance, "bite");
+				case "qt":
+					addWeek(instance, "QT Week");
+				case "herobrine":
+					addWeek(instance, "Herobrine-Week");
+				case "hex":
+					addWeek(instance, "HEXTRAVAGANZA");
+					addWeek(instance, "Encore");
+				case "indie-cross":
+					addWeek(instance, "Cuphead-Week");
+					addWeek(instance, "Sans-Week");
+					addWeek(instance, "Bendy-Week");
+					addWeek(instance, "week-sans-freeplay");
+					addWeek(instance, "BonusSongs-Week");
+					addWeek(instance, "Nightmare-Week");
+					addWeek(instance, "secret_songs_week");
+				case "hotline-024":
+					addWeek(instance, "HL24FP1");
+					addWeek(instance, "HL24FP2");
+					addWeek(instance, "HL24EX");
+					addWeek(instance, "HL24CV");
+					addWeek(instance, "HL24SC1");
+					addWeek(instance, "HL24SC2");
+					addWeek(instance, "HL24SC3");
+					addWeek(instance, "HL24SC404");
+				case "misc":
+					addSongs(instance, ["killer-scream", "foolhardy", "run", "Playtime", "Atrocity"]);
 			};
 		 */
 	}
@@ -316,13 +316,11 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		];
 		for (mod in Mods.getModDirectories())
 		{
-			trace(Paths.mods(mod) + '/categories');
 			var categoriesFolder:String = Paths.mods(mod) + '/categories';
 			if (FileSystem.exists(categoriesFolder))
 			{
 				for (jsonFile in FileSystem.readDirectory(categoriesFolder))
 				{
-					trace(File.getContent(categoriesFolder + '/' + jsonFile));
 					var jsonCategories:CategoriesMetaData = tjson.TJSON.parse(File.getContent(categoriesFolder + '/' + jsonFile));
 					for (category in jsonCategories.categories)
 					{
@@ -351,11 +349,6 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 
 		for (i in 0...categories.length)
 		{
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
-			trace(categories[i].name);
 			var categoryText:Alphabet = new Alphabet(90, 320, categories[i].name, true);
 			categoryText.isMenuItem = true;
 			categoryText.targetY = i - curSelected;
@@ -367,7 +360,8 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				categoryText.scaleX = maxWidth / categoryText.width;
 			}
 			categoryText.snapToPosition();
-			var icon:HealthIcon = new HealthIcon(categories[i].icon);
+			var icon:HealthIcon = new HealthIcon();
+			icon.changeIcon(categories[i].icon);
 			icon.sprTracker = categoryText;
 
 			// using a FlxGroup is too much fuss!

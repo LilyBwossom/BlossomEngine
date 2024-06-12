@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mikebig.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mike downmiss instance 10000" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10001" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10002" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10003" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10004" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10005" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10006" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10007" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10008" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10009" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10010" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10011" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10012" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10013" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike downmiss instance 10014" x="10" y="10" width="1125" height="1770"/>
+	<SubTexture name="mike idle dance instance 10000" x="1145" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10001" x="1145" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10002" x="2258" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10003" x="2258" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10004" x="3371" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10005" x="3371" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10006" x="4484" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10007" x="4484" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10008" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10009" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10010" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10011" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10012" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike idle dance instance 10013" x="5597" y="10" width="1103" height="1846"/>
+	<SubTexture name="mike leftmiss instance 10000" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10001" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10002" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10003" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10004" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10005" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10006" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10007" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10008" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10009" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10010" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10011" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10012" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10013" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike leftmiss instance 10014" x="6710" y="10" width="1091" height="1877"/>
+	<SubTexture name="mike rightmiss instance 10000" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10001" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10002" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10003" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10004" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10005" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10006" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10007" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10008" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10009" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10010" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10011" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10012" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10013" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike rightmiss instance 10014" x="10" y="1897" width="1128" height="1894"/>
+	<SubTexture name="mike sing down instance 10000" x="1148" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10001" x="1148" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10002" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10003" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10004" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10005" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10006" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10007" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10008" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10009" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10010" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10011" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10012" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10013" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing down instance 10014" x="2283" y="1897" width="1125" height="1790"/>
+	<SubTexture name="mike sing left instance 10000" x="3418" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10001" x="3418" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10002" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10003" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10004" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10005" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10006" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10007" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10008" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10009" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10010" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10011" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10012" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10013" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing left instance 10014" x="4519" y="1897" width="1091" height="1881"/>
+	<SubTexture name="mike sing right instance 10000" x="5620" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10001" x="5620" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10002" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10003" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10004" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10005" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10006" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10007" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10008" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10009" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10010" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10011" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10012" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10013" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing right instance 10014" x="6770" y="1897" width="1140" height="1894"/>
+	<SubTexture name="mike sing up instance 10000" x="10" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10001" x="10" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10002" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10003" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10004" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10005" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10006" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10007" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10008" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10009" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10010" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10011" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10012" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10013" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike sing up instance 10014" x="1130" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10000" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10001" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10002" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10003" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10004" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10005" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10006" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10007" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10008" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10009" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10010" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10011" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10012" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10013" x="2250" y="3801" width="1110" height="1947"/>
+	<SubTexture name="mike upmiss instance 10014" x="2250" y="3801" width="1110" height="1947"/>
+</TextureAtlas>

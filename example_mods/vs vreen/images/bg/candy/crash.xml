@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="crash.png">
+<SubTexture name="crash crash0000" x="913" y="0" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0001" x="417" y="341" width="417" height="334" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0002" x="0" y="341" width="417" height="338" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0003" x="496" y="0" width="417" height="339" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0004" x="0" y="679" width="421" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0005" x="0" y="679" width="421" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0006" x="421" y="679" width="459" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0007" x="421" y="679" width="459" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0008" x="1330" y="0" width="481" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0009" x="1330" y="0" width="481" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0010" x="0" y="0" width="496" height="341" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0011" x="0" y="0" width="496" height="341" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0012" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0013" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0014" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0015" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0016" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0017" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0018" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0019" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0020" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0021" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0022" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0023" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0024" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0025" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0026" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0027" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0028" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0029" x="1330" y="333" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+<SubTexture name="crash crash0030" x="1330" y="666" width="417" height="333" frameX="0" frameY="0" frameWidth="496" frameHeight="341" />
+</TextureAtlas>

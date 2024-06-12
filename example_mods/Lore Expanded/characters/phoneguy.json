@@ -1,0 +1,116 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "phone guy idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "phone guy left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "phone guy down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "phone guy up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "phone guy right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				131,
+				116
+			],
+			"anim": "call in",
+			"fps": 24,
+			"name": "phone guy bounce in",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-4,
+				0
+			],
+			"anim": "call out",
+			"fps": 24,
+			"name": "phone guy call out",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idleloop",
+			"indices": [
+				13,
+				14,
+				15,
+				16
+			],
+			"name": "phone guy idle dance"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/phoneguy",
+	"position": [
+		150,
+		140
+	],
+	"healthicon": "phone",
+	"flip_x": true,
+	"healthbar_colors": [
+		234,
+		40,
+		77
+	],
+	"camera_position": [
+		390,
+		-70
+	],
+	"sing_duration": 4,
+	"scale": 0.9
+}

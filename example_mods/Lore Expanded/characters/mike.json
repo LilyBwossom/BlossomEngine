@@ -1,0 +1,177 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				15,
+				18
+			],
+			"anim": "hurt",
+			"fps": 24,
+			"name": "BF hit",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-4,
+				0
+			],
+			"anim": "scared",
+			"fps": 24,
+			"name": "BF idle shaking",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				37,
+				11
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "BF dies",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				37,
+				5
+			],
+			"anim": "deathLoop",
+			"fps": 24,
+			"name": "BF Dead Loop",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				37,
+				69
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "BF Dead confirm",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "mike idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				6,
+				12
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "mike sing left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				4,
+				-20
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "mike sing down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				37
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "mike sing up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-19,
+				17
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "mike sing right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				3,
+				11
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "mike leftmiss"
+		},
+		{
+			"offsets": [
+				1,
+				-25
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "mike downmiss"
+		},
+		{
+			"offsets": [
+				-11,
+				36
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "mike upmiss"
+		},
+		{
+			"offsets": [
+				-20,
+				19
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "mike rightmiss"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/mike",
+	"position": [
+		50,
+		110
+	],
+	"healthicon": "mike",
+	"flip_x": true,
+	"healthbar_colors": [
+		123,
+		42,
+		132
+	],
+	"camera_position": [
+		160,
+		-20
+	],
+	"sing_duration": 4,
+	"scale": 1.1
+}

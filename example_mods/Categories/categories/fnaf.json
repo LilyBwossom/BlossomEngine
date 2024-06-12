@@ -1,0 +1,23 @@
+{
+    "categories": [
+        {
+            "name": "fnaf",
+            "icon": "matpat",
+            "color": [
+                135,
+                206,
+                250
+            ],
+            "weeks": [
+                "week87",
+                "fnaf1",
+                "fnaf2",
+                "fnaf3",
+                "fnaf4",
+                "fnaf5",
+                "vs_vloo",
+                "bite"
+            ]
+        }
+    ]
+}

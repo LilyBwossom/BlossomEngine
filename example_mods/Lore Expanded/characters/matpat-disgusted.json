@@ -1,0 +1,94 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "matpat disgust idle dance",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "matpat disgust idle dance",
+			"indices": [
+				10,
+				11,
+				12,
+				12
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				133,
+				1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "matpat disgust sing left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				5,
+				-14
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "matpat disgust sing down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				82,
+				-3
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "matpat disgust sing right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				34,
+				75
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "matpat disgust sing up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/matpatdisgust",
+	"position": [
+		10,
+		10
+	],
+	"healthicon": "matpat-happy",
+	"flip_x": false,
+	"healthbar_colors": [
+		155,
+		22,
+		46
+	],
+	"camera_position": [
+		141,
+		20
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

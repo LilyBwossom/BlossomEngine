@@ -1,0 +1,40 @@
+{
+	"storyName": "The Funk of '87",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"mechanics": "Default Mechanics, Note Bounce",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Lore",
+			"matpat-happy",
+			[
+				195,
+				13,
+				75
+			]
+		],
+		[
+			"FNAF-Rap-Battle",
+			"matpat",
+			[
+				195,
+				13,
+				75
+			]
+		]
+	],
+	"weekName": "week87"
+}

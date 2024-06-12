@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				130,
+				-151
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Jota down"
+		},
+		{
+			"offsets": [
+				55,
+				-16
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Jota left"
+		},
+		{
+			"offsets": [
+				22,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Jota rigth"
+		},
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Jota iddle"
+		},
+		{
+			"offsets": [
+				77,
+				57
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Jota up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/jota",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "jota",
+	"flip_x": false,
+	"healthbar_colors": [
+		84,
+		81,
+		75
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-60,
+				-91
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "maketplier d side down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "maketplier d side idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				55,
+				94
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "maketplier d side left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "maketplier d side rigth",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-72,
+				137
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "maketplier d side up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/market_plier",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "mark",
+	"flip_x": true,
+	"healthbar_colors": [
+		255,
+		155,
+		174
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

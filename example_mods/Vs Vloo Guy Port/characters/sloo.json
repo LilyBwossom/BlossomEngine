@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				49,
+				-20
+			],
+			"anim": "singDOWN",
+			"fps": 30,
+			"name": "sloo down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-66,
+				281
+			],
+			"anim": "singUP",
+			"fps": 30,
+			"name": "sloo up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				51,
+				67
+			],
+			"anim": "singLEFT",
+			"fps": 30,
+			"name": "sloo left",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				41,
+				80
+			],
+			"anim": "singRIGHT",
+			"fps": 30,
+			"name": "sloo rigth",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-20,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "sloo iddle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/sloo",
+	"position": [
+		-130,
+		320
+	],
+	"healthicon": "sloo",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-260,
+		-20
+	],
+	"sing_duration": 4,
+	"scale": 1.3
+}

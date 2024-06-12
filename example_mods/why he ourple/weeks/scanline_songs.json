@@ -1,0 +1,59 @@
+{
+	"songs": [
+		[
+			"lurking",
+			"bonnie",
+			[
+				46,
+				20,
+				75
+			]
+		],
+		[
+			"followed",
+			"shadowfred",
+			[
+				46,
+				20,
+				75
+			]
+		],
+		[
+			"Go Fish",
+			"oldman",
+			[
+				247,
+				72,
+				72
+			]
+		],
+		[
+			"Restless",
+			"crying",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "Hard",
+	"mechanics": "Default Mechanics, No Scanline",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "Your New Week",
+	"weekName": "fnaf1",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

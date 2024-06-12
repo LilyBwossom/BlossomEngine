@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "pewdiepie idle"
+		},
+		{
+			"offsets": [
+				365,
+				-141
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pewdiepie left"
+		},
+		{
+			"offsets": [
+				-38,
+				-197
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pewdiepie right"
+		},
+		{
+			"offsets": [
+				-9,
+				97
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pewdiepie up"
+		},
+		{
+			"offsets": [
+				-80,
+				-320
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pewdiepie down"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Pewdiepie",
+	"position": [
+		-70,
+		120
+	],
+	"healthicon": "pew",
+	"flip_x": false,
+	"healthbar_colors": [
+		10,
+		188,
+		224
+	],
+	"camera_position": [
+		60,
+		150
+	],
+	"sing_duration": 4,
+	"scale": 0.7
+}

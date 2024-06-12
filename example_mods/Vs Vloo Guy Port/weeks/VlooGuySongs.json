@@ -1,0 +1,77 @@
+{
+	"storyName": "None",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"guy",
+			"vlooguy",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"midnight",
+			"yed",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"bite",
+			"flumpty",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"lore",
+			"jota",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"unlikely-rivals",
+			"tobias",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"beastbox",
+			"beast",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "vs_vloo",
+	"hiddenUntilUnlocked": false
+}

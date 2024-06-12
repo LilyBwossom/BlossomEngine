@@ -65,7 +65,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		var option:GameplayOption = new GameplayOption('Play As Opponent', 'opponentplay', 'bool', false);
 		optionsArray.push(option);
 
-		var option:GameplayOption = new GameplayOption('Double Chart Type', 'doubleplaytype', 'string', 'play all notes', [
+		var option:GameplayOption = new GameplayOption('Double Chart Type', 'doubleplaytype', 'string', 'prioritize note amount', [
 			"play all notes",
 			"prioritize note amount",
 			"prioritize player notes",

@@ -1,0 +1,94 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				183,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "matpat sing left"
+		},
+		{
+			"offsets": [
+				-200,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "matpat idle dance"
+		},
+		{
+			"offsets": [
+				52,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "matpat sing right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-185,
+				-34
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "matpat sing down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-106,
+				215
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "matpat sing up",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-200,
+				0
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "matpat idle dance instance 1",
+			"indices": [
+				10,
+				11,
+				12,
+				12
+			]
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/matpatbig",
+	"position": [
+		-400,
+		-120
+	],
+	"healthicon": "matpat",
+	"flip_x": false,
+	"healthbar_colors": [
+		155,
+		22,
+		46
+	],
+	"camera_position": [
+		300,
+		-510
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

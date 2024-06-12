@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "pewds idle"
+		},
+		{
+			"offsets": [
+				33,
+				-18
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pewds left"
+		},
+		{
+			"offsets": [
+				-40,
+				83
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pewds down"
+		},
+		{
+			"offsets": [
+				0,
+				60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pewds up"
+		},
+		{
+			"offsets": [
+				30,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pewds right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				2,
+				-13
+			],
+			"anim": "scare",
+			"fps": 24,
+			"name": "pewds scare",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pewds",
+	"position": [
+		70,
+		210
+	],
+	"healthicon": "pew",
+	"flip_x": true,
+	"healthbar_colors": [
+		10,
+		188,
+		224
+	],
+	"camera_position": [
+		-110,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

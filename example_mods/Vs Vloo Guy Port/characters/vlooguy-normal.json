@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-29,
+				-20
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "vloo right"
+		},
+		{
+			"offsets": [
+				-21,
+				10
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "vloo down"
+		},
+		{
+			"offsets": [
+				24,
+				1
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singUP",
+			"indices": [],
+			"name": "vloo up"
+		},
+		{
+			"offsets": [
+				-19,
+				-13
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "vloo left"
+		},
+		{
+			"offsets": [
+				-20,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "vloo idle"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/vloo",
+	"position": [
+		-130,
+		320
+	],
+	"healthicon": "vlooguy",
+	"flip_x": false,
+	"healthbar_colors": [
+		40,
+		60,
+		155
+	],
+	"camera_position": [
+		-20,
+		-20
+	],
+	"sing_duration": 4,
+	"scale": 1.3
+}
