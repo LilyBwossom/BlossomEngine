@@ -78,6 +78,8 @@ import states.TitleState;
 	public var safeFrames:Float = 10;
 	public var guitarHeroSustains:Bool = true;
 	public var discordRPC:Bool = true;
+
+	public var pauseCountdown:Bool = true;
 }
 
 class ClientPrefs

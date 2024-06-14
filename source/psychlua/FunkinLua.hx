@@ -190,6 +190,8 @@ class FunkinLua
 		set('scriptName', scriptName);
 		set('currentModDirectory', Mods.currentModDirectory);
 
+		set('pauseCountdown', ClientPrefs.data.pauseCountdown);
+
 		// Noteskin/Splash
 		set('noteSkin', ClientPrefs.data.noteSkin);
 		set('noteSkinPostfix', Note.getNoteSkinPostfix());

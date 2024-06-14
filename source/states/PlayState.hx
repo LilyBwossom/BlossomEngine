@@ -1133,7 +1133,8 @@ class PlayState extends MusicBeatState
 
 		spr.screenCenter();
 		spr.antialiasing = antialias;
-		insert(members.indexOf(noteGroup), spr);
+		// insert(members.indexOf(noteGroup), spr);
+		add(spr);
 		FlxTween.tween(spr, {/*y: spr.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
 			ease: FlxEase.cubeInOut,
 			onComplete: function(twn:FlxTween)
@@ -1756,6 +1757,64 @@ class PlayState extends MusicBeatState
 		super.openSubState(SubState);
 	}
 
+	function countDownOnPause()
+	{
+		var swagCounter:Int = 0;
+		var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
+		var introImagesArray:Array<String> = switch (stageUI)
+		{
+			case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
+			case "normal": ["ready", "set", "go"];
+			default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+		}
+		introAssets.set(stageUI, introImagesArray);
+
+		var introAlts:Array<String> = introAssets.get(stageUI);
+		var antialias:Bool = (ClientPrefs.data.antialiasing && !isPixelStage);
+		var tick:Countdown = THREE;
+		startTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
+		{
+			var tick:Countdown = THREE;
+
+			switch (swagCounter)
+			{
+				case 0:
+					FlxG.sound.play(Paths.sound('intro3' + introSoundsSuffix), 0.6);
+					tick = THREE;
+				case 1:
+					countdownReady = createCountdownSprite(introAlts[0], antialias);
+					FlxG.sound.play(Paths.sound('intro2' + introSoundsSuffix), 0.6);
+					tick = TWO;
+				case 2:
+					countdownSet = createCountdownSprite(introAlts[1], antialias);
+					FlxG.sound.play(Paths.sound('intro1' + introSoundsSuffix), 0.6);
+					tick = ONE;
+				case 3:
+					countdownGo = createCountdownSprite(introAlts[2], antialias);
+					FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
+					tick = GO;
+				case 4:
+					tick = START;
+
+					if (FlxG.sound.music != null && !startingSong)
+					{
+						resyncVocals();
+					}
+					FlxTimer.globalManager.forEach(function(tmr:FlxTimer) if (!tmr.finished)
+						tmr.active = true);
+					FlxTween.globalManager.forEach(function(twn:FlxTween) if (!twn.finished)
+						twn.active = true);
+
+					paused = false;
+					callOnScripts('onResume');
+					resetRPC(startTimer != null && startTimer.finished);
+			}
+
+			stagesFunc(function(stage:BaseStage) stage.countdownTick(tick, swagCounter));
+			swagCounter += 1;
+		}, 5);
+	}
+
 	override function closeSubState()
 	{
 		super.closeSubState();
@@ -1763,18 +1822,25 @@ class PlayState extends MusicBeatState
 		stagesFunc(function(stage:BaseStage) stage.closeSubState());
 		if (paused)
 		{
-			if (FlxG.sound.music != null && !startingSong)
+			if (ClientPrefs.data.pauseCountdown)
 			{
-				resyncVocals();
+				countDownOnPause();
 			}
-			FlxTimer.globalManager.forEach(function(tmr:FlxTimer) if (!tmr.finished)
-				tmr.active = true);
-			FlxTween.globalManager.forEach(function(twn:FlxTween) if (!twn.finished)
-				twn.active = true);
+			else
+			{
+				if (FlxG.sound.music != null && !startingSong)
+				{
+					resyncVocals();
+				}
+				FlxTimer.globalManager.forEach(function(tmr:FlxTimer) if (!tmr.finished)
+					tmr.active = true);
+				FlxTween.globalManager.forEach(function(twn:FlxTween) if (!twn.finished)
+					twn.active = true);
 
-			paused = false;
-			callOnScripts('onResume');
-			resetRPC(startTimer != null && startTimer.finished);
+				paused = false;
+				callOnScripts('onResume');
+				resetRPC(startTimer != null && startTimer.finished);
+			}
 		}
 	}
 
