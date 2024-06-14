@@ -147,7 +147,7 @@ class FunkinLua
 		set('instakillOnMiss', game.instakillOnMiss);
 		set('botPlay', game.cpuControlled);
 		set('practice', game.practiceMode);
-		set('opponentchart', PlayState.opponentChart);
+		set('opponentChart', PlayState.opponentChart);
 		set('doubleChartType', PlayState.doubleChartType);
 		set('doubleChart', PlayState.doubleChart);
 

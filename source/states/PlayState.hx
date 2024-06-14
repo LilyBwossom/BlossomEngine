@@ -201,9 +201,14 @@ class PlayState extends MusicBeatState
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 
-	public static var opponentChart:Bool = false;
+	public static var opponentChart(get, default):Bool = false;
 	public static var doubleChartType:String = 'prioritize note amount';
 	public static var doubleChart:Bool = false;
+
+	static function get_opponentChart()
+	{
+		return opponentChart && !doubleChart;
+	}
 
 	public var practiceMode:Bool = false;
 
