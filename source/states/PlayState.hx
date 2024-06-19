@@ -1014,6 +1014,8 @@ class PlayState extends MusicBeatState
 		Paths.sound('introGo' + introSoundsSuffix);
 	}
 
+	var inCountdown:Bool = false;
+
 	public function startCountdown()
 	{
 		if (startedCountdown)
@@ -1045,6 +1047,7 @@ class PlayState extends MusicBeatState
 			}
 
 			startedCountdown = true;
+			inCountdown = true;
 			Conductor.songPosition = -Conductor.crochet * 5;
 			setOnScripts('startedCountdown', true);
 			callOnScripts('onCountdownStarted', null);
@@ -1099,6 +1102,7 @@ class PlayState extends MusicBeatState
 						tick = GO;
 					case 4:
 						tick = START;
+						inCountdown = false;
 				}
 
 				notes.forEachAlive(function(note:Note)
@@ -1758,8 +1762,15 @@ class PlayState extends MusicBeatState
 		super.openSubState(SubState);
 	}
 
+	var pauseTimer:FlxTimer = null;
+
 	function countDownOnPause()
 	{
+		if (pauseTimer != null && !pauseTimer.finished)
+		{
+			pauseTimer.cancel();
+		}
+
 		var swagCounter:Int = 0;
 		var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 		var introImagesArray:Array<String> = switch (stageUI)
@@ -1773,7 +1784,7 @@ class PlayState extends MusicBeatState
 		var introAlts:Array<String> = introAssets.get(stageUI);
 		var antialias:Bool = (ClientPrefs.data.antialiasing && !isPixelStage);
 		var tick:Countdown = THREE;
-		startTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
+		pauseTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
 		{
 			var tick:Countdown = THREE;
 
@@ -1808,7 +1819,7 @@ class PlayState extends MusicBeatState
 
 					paused = false;
 					callOnScripts('onResume');
-					resetRPC(startTimer != null && startTimer.finished);
+					resetRPC(pauseTimer != null && pauseTimer.finished);
 			}
 
 			stagesFunc(function(stage:BaseStage) stage.countdownTick(tick, swagCounter));
@@ -1823,7 +1834,7 @@ class PlayState extends MusicBeatState
 		stagesFunc(function(stage:BaseStage) stage.closeSubState());
 		if (paused)
 		{
-			if (ClientPrefs.data.pauseCountdown)
+			if (ClientPrefs.data.pauseCountdown && !inCountdown)
 			{
 				countDownOnPause();
 			}
@@ -2834,15 +2845,16 @@ class PlayState extends MusicBeatState
 
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
-
 	public var showCombo:Bool = false;
 	public var showComboNum:Bool = true;
 	public var showRating:Bool = true;
 
 	// Stores Ratings and Combo Sprites in a group
 	public var comboGroup:FlxSpriteGroup;
+
 	// Stores HUD Objects in a Group
 	public var uiGroup:FlxSpriteGroup;
+
 	// Stores Note Objects in a Group
 	public var noteGroup:FlxTypedGroup<FlxBasic>;
 
