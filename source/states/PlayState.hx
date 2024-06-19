@@ -1,5 +1,6 @@
 package states;
 
+import backend.Mechanic;
 import backend.Highscore;
 import backend.StageData;
 import backend.WeekData;
@@ -638,12 +639,12 @@ class PlayState extends MusicBeatState
 			for (file in FileSystem.readDirectory(folder))
 			{
 				#if LUA_ALLOWED
-				if (file.toLowerCase().endsWith('.lua'))
+				if (file.toLowerCase().endsWith('.lua') && !Mechanic.disabledScripts.contains(file))
 					new FunkinLua(folder + file);
 				#end
 
 				#if HSCRIPT_ALLOWED
-				if (file.toLowerCase().endsWith('.hx'))
+				if (file.toLowerCase().endsWith('.hx') && !Mechanic.disabledScripts.contains(file))
 					initHScript(folder + file);
 				#end
 			}

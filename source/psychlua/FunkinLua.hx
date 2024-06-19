@@ -1,6 +1,7 @@
 #if LUA_ALLOWED
 package psychlua;
 
+import backend.Mechanic;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -150,6 +151,7 @@ class FunkinLua
 		set('opponentChart', PlayState.opponentChart);
 		set('doubleChartType', PlayState.doubleChartType);
 		set('doubleChart', PlayState.doubleChart);
+		set('mechanic', Mechanic.currentMechanic);
 
 		for (i in 0...4)
 		{

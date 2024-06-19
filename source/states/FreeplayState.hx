@@ -1,5 +1,6 @@
 package states;
 
+import backend.Mechanic;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -21,6 +22,7 @@ class FreeplayState extends MusicBeatState
 	var curDifficulty:Int = -1;
 
 	private static var lastDifficultyName:String = Difficulty.getDefault();
+	private static var lastMechanic:String = Mechanic.defaultMechanic;
 
 	var scoreBG:FlxSprite;
 	var scoreText:FlxText;
@@ -105,13 +107,17 @@ class FreeplayState extends MusicBeatState
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 
-		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
+		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 105, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
 		add(diffText);
+
+		mechText = new FlxText(scoreText.x, diffText.y + 25, 0, "", 24);
+		mechText.font = scoreText.font;
+		add(mechText);
 
 		add(scoreText);
 
@@ -133,6 +139,9 @@ class FreeplayState extends MusicBeatState
 		lerpSelected = curSelected;
 
 		curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(lastDifficultyName)));
+
+		Mechanic.loadFromWeek();
+		curMechanic = Math.round(Math.max(0, Mechanic.list.indexOf(lastMechanic)));
 
 		bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 		bottomBG.alpha = 0.6;
@@ -256,15 +265,24 @@ class FreeplayState extends MusicBeatState
 				}
 			}
 
-			if (controls.UI_LEFT_P)
+			if (controls.UI_LEFT_P && !FlxG.keys.pressed.SHIFT)
 			{
 				changeDiff(-1);
 				_updateSongLastDifficulty();
 			}
-			else if (controls.UI_RIGHT_P)
+			else if (controls.UI_RIGHT_P && !FlxG.keys.pressed.SHIFT)
 			{
 				changeDiff(1);
 				_updateSongLastDifficulty();
+			}
+
+			if (controls.UI_LEFT_P && FlxG.keys.pressed.SHIFT)
+			{
+				changeMech(-1);
+			}
+			else if (controls.UI_RIGHT_P && FlxG.keys.pressed.SHIFT)
+			{
+				changeMech(1);
 			}
 		}
 
@@ -444,6 +462,30 @@ class FreeplayState extends MusicBeatState
 		missingTextBG.visible = false;
 	}
 
+	var mechText:FlxText;
+	var curMechanic:Int = 0;
+
+	function changeMech(change:Int = 0)
+	{
+		curMechanic += change;
+
+		if (curMechanic < 0)
+			curMechanic = Mechanic.list.length - 1;
+		if (curMechanic >= Mechanic.list.length)
+			curMechanic = 0;
+
+		if (Mechanic.list.length > 1)
+			mechText.text = '< ' + Mechanic.list[curMechanic].toUpperCase() + ' >';
+		else
+			mechText.text = Mechanic.list[curMechanic].toUpperCase();
+
+		positionHighscore();
+
+		Mechanic.disabledScripts = Mechanic.loadFromJson(Mechanic.list[curMechanic], songs[curSelected].songName).disabledScripts;
+		Mechanic.currentMechanic = Mechanic.list[curMechanic];
+		lastMechanic = Mechanic.currentMechanic;
+	}
+
 	function changeSelection(change:Int = 0, playSound:Bool = true)
 	{
 		if (player.playingMusic)
@@ -499,6 +541,7 @@ class FreeplayState extends MusicBeatState
 		Mods.currentModDirectory = songs[curSelected].folder;
 		PlayState.storyWeek = songs[curSelected].week;
 		Difficulty.loadFromWeek();
+		Mechanic.loadFromWeek();
 
 		var savedDiff:String = songs[curSelected].lastDifficulty;
 		var lastDiff:Int = Difficulty.list.indexOf(lastDifficultyName);
@@ -512,6 +555,7 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 0;
 
 		changeDiff();
+		changeMech();
 		_updateSongLastDifficulty();
 	}
 
@@ -527,6 +571,9 @@ class FreeplayState extends MusicBeatState
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
+
+		mechText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
+		mechText.x -= mechText.width / 2;
 	}
 
 	var _drawDistance:Int = 4;
