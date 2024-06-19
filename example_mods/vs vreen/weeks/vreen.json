@@ -1,0 +1,41 @@
+{
+	"songs": [
+		[
+			"Bite",
+			"pew",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fever",
+			"vreen",
+			[
+				0,
+				250,
+				93
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Hard",
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"storyName": "vreen",
+	"weekName": "vreen",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

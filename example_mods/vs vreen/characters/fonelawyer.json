@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-153,
+				33
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				113,
+				66
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-149,
+				38
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-177,
+				168
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-206,
+				9
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				-20,
+				898
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "intro",
+			"indices": [],
+			"name": "skydrop"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/fonelawyer",
+	"position": [
+		-90,
+		80
+	],
+	"healthicon": "blank",
+	"flip_x": false,
+	"healthbar_colors": [
+		152,
+		148,
+		151
+	],
+	"camera_position": [
+		155,
+		-55
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

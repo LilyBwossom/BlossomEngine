@@ -16685,7 +16685,7 @@
 			]
 		],
 		"song": "bite",
-		"arrowSkin": "",
+		"arrowSkin": "NOTE_assets",
 		"stage": "candy",
 		"validScore": true,
 		"needsVoices": true,
