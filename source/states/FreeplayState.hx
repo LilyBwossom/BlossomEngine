@@ -1,5 +1,6 @@
 package states;
 
+import backend.Favorite;
 import backend.Mechanic;
 import backend.WeekData;
 import backend.Highscore;
@@ -36,6 +37,7 @@ class FreeplayState extends MusicBeatState
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
+	private var starIconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -98,6 +100,13 @@ class FreeplayState extends MusicBeatState
 			iconArray.push(icon);
 			add(icon);
 
+			if (Favorite.isFavoriteSong(songs[i]))
+			{
+				var starIcon:HealthIcon = Favorite.addStarIcon(songText);
+				starIconArray.push(starIcon);
+				add(starIcon);
+			}
+
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			// songText.screenCenter(X);
@@ -134,6 +143,7 @@ class FreeplayState extends MusicBeatState
 
 		if (curSelected >= songs.length)
 			curSelected = 0;
+
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
 		lerpSelected = curSelected;
@@ -147,9 +157,9 @@ class FreeplayState extends MusicBeatState
 		bottomBG.alpha = 0.6;
 		add(bottomBG);
 
-		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy / Press ALT to Favorite a Song.";
 		bottomString = leText;
-		var size:Int = 16;
+		var size:Int = 15;
 		bottomText = new FlxText(bottomBG.x, bottomBG.y + 4, FlxG.width, leText, size);
 		bottomText.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
 		bottomText.scrollFactor.set();
@@ -283,6 +293,33 @@ class FreeplayState extends MusicBeatState
 			else if (controls.UI_RIGHT_P && FlxG.keys.pressed.SHIFT)
 			{
 				changeMech(1);
+			}
+
+			if (FlxG.keys.justPressed.ALT)
+			{
+				if (Favorite.isFavoriteSong(songs[curSelected]))
+				{
+					for (starIcon in starIconArray)
+					{
+						if (starIcon.sprTracker == iconArray[curSelected].sprTracker)
+						{
+							starIconArray.remove(starIcon);
+							remove(starIcon);
+						}
+					}
+
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+					Favorite.removeFavorite(songs[curSelected].songName);
+				}
+				else
+				{
+					var starIcon:HealthIcon = Favorite.addStarIcon(iconArray[curSelected].sprTracker);
+					starIconArray.push(starIcon);
+					add(starIcon);
+
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+					Favorite.addFavorite(songs[curSelected].songName);
+				}
 			}
 		}
 
@@ -601,6 +638,13 @@ class FreeplayState extends MusicBeatState
 			var icon:HealthIcon = iconArray[i];
 			icon.visible = icon.active = true;
 			_lastVisibles.push(i);
+		}
+
+		for (starIcon in starIconArray)
+		{
+			starIcon.visible = starIcon.sprTracker.visible;
+			starIcon.active = starIcon.sprTracker.active;
+			starIcon.alpha = starIcon.sprTracker.alpha;
 		}
 	}
 

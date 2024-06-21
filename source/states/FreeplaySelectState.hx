@@ -1,5 +1,6 @@
 package states;
 
+import backend.Favorite;
 import flixel.math.FlxPoint.FlxCallbackPoint;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.FlxSprite;
@@ -15,6 +16,7 @@ import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
 import objects.HealthIcon;
+import states.FreeplayState.SongMetadata;
 import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class FreeplaySelectState extends MusicBeatState
 
 {
@@ -76,6 +78,12 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 					instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
 				}
 			}
+			return;
+		}
+
+		if (WeekName == "favorites")
+		{
+			addSongs(instance, Favorite.favoriteSongs);
 			return;
 		}
 
@@ -307,6 +315,13 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 
 		categories = [
 			{
+				name: "favorites",
+				icon: "star",
+				color: [255, 255, 51],
+				weeks: null,
+				songs: null
+			},
+			{
 				name: "all",
 				icon: "dad",
 				color: [135, 206, 250],
@@ -314,6 +329,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				songs: null
 			}
 		];
+
 		for (mod in Mods.getModDirectories())
 		{
 			var categoriesFolder:String = Paths.mods(mod) + '/categories';
@@ -484,7 +500,37 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		else if (accepted)
 		{
 			canScroll = false;
-			MusicBeatState.switchState(new FreeplayState());
+
+			if (categories[curSelected].name == "all")
+			{
+				MusicBeatState.switchState(new FreeplayState());
+				return;
+			}
+
+			if (categories[curSelected].name == "favorites")
+			{
+				if (Favorite.favoriteSongs.length == 0)
+				{
+					MusicBeatState.switchState(new EmptyCategoryState());
+				}
+				else
+				{
+					MusicBeatState.switchState(new FreeplayState());
+				}
+				return;
+			}
+
+			var noSongs:Bool = categories[curSelected].songs == null || categories[curSelected].songs.length == 0;
+			var noWeeks:Bool = categories[curSelected].weeks == null || categories[curSelected].weeks.length == 0;
+
+			if (noSongs && noWeeks)
+			{
+				MusicBeatState.switchState(new EmptyCategoryState());
+			}
+			else
+			{
+				MusicBeatState.switchState(new FreeplayState());
+			}
 		}
 		super.update(elapsed);
 	}
