@@ -2889,7 +2889,20 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		var placement:Float = FlxG.width * 0.35;
+		var placement:Float;
+		if (doubleChart)
+		{
+			placement = FlxG.width * 0.10;
+		}
+		else if (opponentChart)
+		{
+			placement = FlxG.width * 0.50;
+		}
+		else
+		{
+			placement = FlxG.width * 0.35;
+		}
+
 		var rating:FlxSprite = new FlxSprite();
 		var score:Int = 350;
 
