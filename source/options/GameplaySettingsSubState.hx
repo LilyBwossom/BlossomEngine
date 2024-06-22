@@ -21,6 +21,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'pauseCountdown', 'bool');
 		addOption(option);
 
+		var option:Option = new Option('Lane Underlay Opacity', "Changes the opacity of the lane underlay.", 'underlay', 'percent');
+		option.scrollSpeed = 1.6;
+		option.minValue = 0.0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		option.decimals = 1;
+		addOption(option);
+
 		var option:Option = new Option('Opponent Notes', 'If unchecked, opponent notes get hidden.', 'opponentStrums', 'bool');
 		addOption(option);
 

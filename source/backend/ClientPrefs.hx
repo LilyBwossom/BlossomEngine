@@ -80,6 +80,8 @@ import states.TitleState;
 	public var discordRPC:Bool = true;
 
 	public var pauseCountdown:Bool = true;
+
+	public var underlay:Float = 0;
 }
 
 class ClientPrefs

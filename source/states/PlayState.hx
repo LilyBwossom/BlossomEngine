@@ -223,6 +223,9 @@ class PlayState extends MusicBeatState
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
+	public var laneunderlay:FlxSprite;
+	public var laneunderlayOpponent:FlxSprite;
+
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -507,6 +510,22 @@ class PlayState extends MusicBeatState
 		uiGroup = new FlxSpriteGroup();
 		add(uiGroup);
 
+		laneunderlay = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlay.alpha = ClientPrefs.data.underlay;
+		laneunderlay.color = FlxColor.BLACK;
+		laneunderlay.scrollFactor.set();
+
+		laneunderlayOpponent = new FlxSprite(0 - 25, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneunderlayOpponent.alpha = ClientPrefs.data.underlay;
+		laneunderlayOpponent.color = FlxColor.BLACK;
+		laneunderlayOpponent.scrollFactor.set();
+
+		if (!ClientPrefs.data.middleScroll && !PlayState.doubleChart)
+		{
+			insert(members.indexOf(noteGroup), laneunderlayOpponent);
+		}
+		insert(members.indexOf(noteGroup), laneunderlay);
+
 		Conductor.songPosition = -5000 / Conductor.songPosition;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
@@ -607,6 +626,9 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		comboGroup.cameras = [camHUD];
+
+		laneunderlay.cameras = [camHUD];
+		laneunderlayOpponent.cameras = [camHUD];
 
 		startingSong = true;
 
@@ -1034,6 +1056,12 @@ class PlayState extends MusicBeatState
 
 			generateStaticArrows(0);
 			generateStaticArrows(1);
+
+			laneunderlay.x = playerStrums.members[0].x - 25;
+			laneunderlayOpponent.x = opponentStrums.members[0].x - 25;
+			laneunderlay.screenCenter(Y);
+			laneunderlayOpponent.screenCenter(Y);
+
 			for (i in 0...playerStrums.length)
 			{
 				setOnScripts('defaultPlayerStrumX' + i, playerStrums.members[i].x);
