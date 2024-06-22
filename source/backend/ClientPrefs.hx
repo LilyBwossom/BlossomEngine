@@ -67,7 +67,10 @@ import states.TitleState;
 		'practice' => false,
 		'botplay' => false,
 		'opponentplay' => false,
-		'doubleplay' => false
+		'doubleplay' => false,
+		'randomnotes' => false,
+		'movecamonnotehit' => false,
+		'opponentdealsdamage' => false
 	];
 
 	public var comboOffset:Array<Int> = [0, 0, 0, 0];

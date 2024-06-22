@@ -205,6 +205,9 @@ class PlayState extends MusicBeatState
 	public static var opponentChart(get, default):Bool = false;
 	public static var doubleChartType:String = 'prioritize note amount';
 	public static var doubleChart:Bool = false;
+	public static var randomizedNotes:Bool = false;
+	public static var opponentNotesDealDamage:Bool = false;
+	public static var moveCamOnNoteHit:Bool = false;
 
 	static function get_opponentChart()
 	{
@@ -318,6 +321,9 @@ class PlayState extends MusicBeatState
 		opponentChart = ClientPrefs.getGameplaySetting('opponentplay', false);
 		doubleChartType = ClientPrefs.getGameplaySetting('doubleplaytype', 'prioritize note amount');
 		doubleChart = ClientPrefs.getGameplaySetting('doubleplay', false);
+		randomizedNotes = ClientPrefs.getGameplaySetting('randomnotes', false);
+		opponentNotesDealDamage = ClientPrefs.getGameplaySetting('opponentdealsdamage', false);
+		moveCamOnNoteHit = ClientPrefs.getGameplaySetting('movecamonnotehit', false);
 		guitarHeroSustains = ClientPrefs.data.guitarHeroSustains;
 
 		// var gameCam:FlxCamera = FlxG.camera;
@@ -1508,7 +1514,7 @@ class PlayState extends MusicBeatState
 					oldNote = null;
 
 				// this puts the notes on the other side for doubleplay
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				var swagNote:Note = new Note(daStrumTime, randomizedNotes ? Math.round(Math.random() * 3) : daNoteData, oldNote);
 				swagNote.noteOriginDad = !gottaHitNote;
 				if (doubleChart)
 				{
@@ -1543,7 +1549,8 @@ class PlayState extends MusicBeatState
 					{
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
-						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote), daNoteData, oldNote, true);
+						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote),
+							randomizedNotes ? unspawnNotes[unspawnNotes.length - 1].noteData : daNoteData, oldNote, true);
 
 						// this puts the sustain notes on the other side for doubleplay
 						sustainNote.noteOriginDad = !gottaHitNote;
@@ -2659,35 +2666,73 @@ class PlayState extends MusicBeatState
 
 		if (gf != null && SONG.notes[sec].gfSection)
 		{
+			moveCamera(null, true);
+			return;
+		}
+
+		var isDad:Bool = (SONG.notes[sec].mustHitSection != true);
+		moveCamera(isDad, null);
+		callOnScripts('onMoveCamera', [isDad ? 'dad' : 'boyfriend']);
+	}
+
+	var cameraTwn:FlxTween;
+	var camIsOnDad:Bool;
+	var camIsOnGf:Bool;
+
+	public function moveCamera(?isDad:Bool, ?isGf:Bool, ?direction:String = null)
+	{
+		if (isDad != null)
+		{
+			camIsOnGf = false;
+			camIsOnDad = isDad;
+		}
+
+		if (isGf != null)
+		{
+			camIsOnGf = isGf;
+		}
+
+		var noteHitX:Int = 0;
+		var noteHitY:Int = 0;
+		var noteOffset:Int = 30;
+
+		if (moveCamOnNoteHit)
+		{
+			switch (direction)
+			{
+				case 'singUP':
+					noteHitY -= noteOffset;
+				case 'singDOWN':
+					noteHitY += noteOffset;
+				case 'singLEFT':
+					noteHitX -= noteOffset;
+				case 'singRIGHT':
+					noteHitX += noteOffset;
+			}
+		}
+
+		if (direction == null ? isGf : camIsOnGf)
+		{
 			camFollow.setPosition(gf.getMidpoint().x, gf.getMidpoint().y);
-			camFollow.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
-			camFollow.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
+			camFollow.x += gf.cameraPosition[0] + girlfriendCameraOffset[0] + noteHitX;
+			camFollow.y += gf.cameraPosition[1] + girlfriendCameraOffset[1] + noteHitY;
 			tweenCamIn();
 			callOnScripts('onMoveCamera', ['gf']);
 			return;
 		}
 
-		var isDad:Bool = (SONG.notes[sec].mustHitSection != true);
-		moveCamera(isDad);
-		callOnScripts('onMoveCamera', [isDad ? 'dad' : 'boyfriend']);
-	}
-
-	var cameraTwn:FlxTween;
-
-	public function moveCamera(isDad:Bool)
-	{
-		if (isDad)
+		if (direction == null ? isDad : camIsOnDad)
 		{
 			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
-			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0] + noteHitX;
+			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1] + noteHitY;
 			tweenCamIn();
 		}
 		else
 		{
 			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
-			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
-			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
+			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0] + noteHitX;
+			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1] + noteHitY;
 
 			if (songName == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
@@ -3412,6 +3457,15 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
+		if (opponentNotesDealDamage && !doubleChart)
+		{
+			var newHealth:Float = health - (note.hitHealth * healthLoss);
+			if (newHealth > 0)
+			{
+				health = newHealth;
+			}
+		}
+
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [
 			notes.members.indexOf(note),
 			Math.abs(note.noteData),
@@ -3449,11 +3503,17 @@ class PlayState extends MusicBeatState
 					altAnim = '-alt';
 
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length - 1, note.noteData)))] + altAnim;
+
 			if (note.gfNote)
 				opponentChar = gf;
 
 			if (opponentChar != null)
 			{
+				if (moveCamOnNoteHit)
+				{
+					moveCamera(null, null, animToPlay);
+				}
+
 				opponentChar.playAnim(animToPlay, true);
 				opponentChar.holdTimer = 0;
 			}
@@ -3543,6 +3603,11 @@ class PlayState extends MusicBeatState
 
 			if (char != null)
 			{
+				if (moveCamOnNoteHit)
+				{
+					moveCamera(null, null, animToPlay);
+				}
+
 				char.playAnim(animToPlay + note.animSuffix, true);
 				char.holdTimer = 0;
 
