@@ -1969,7 +1969,7 @@ class PlayState extends MusicBeatState
 		// sets the opponentIsPlaying bool to the right side so the game can display the right animations
 		if (doubleChart)
 		{
-			if (SONG.notes != null)
+			if (SONG.notes != null && SONG.notes[curSection] != null)
 			{
 				opponentIsPlaying = !SONG.notes[curSection].mustHitSection;
 			}
