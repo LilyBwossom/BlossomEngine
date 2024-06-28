@@ -32,12 +32,15 @@ class FreeplayState extends MusicBeatState
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
+	var ratingText:FlxText;
+	var ratingIcon3:HealthIcon;
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
 	private var starIconArray:Array<HealthIcon> = [];
+	private var ratingIconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -128,6 +131,57 @@ class FreeplayState extends MusicBeatState
 		mechText.font = scoreText.font;
 		add(mechText);
 
+		ratingText = new FlxText(scoreText.x, mechText.y + 40, 0, "DIFFICULTY RATING:", 24);
+		ratingText.font = scoreText.font;
+		add(ratingText);
+
+		// this code is so shit
+		// add rating icon 3 first so you can base the location of the other rating icons on the middle one
+		// icon 3 is approximately x offset += 162
+		ratingIcon3 = new HealthIcon("star");
+		ratingIcon3.y = ratingText.y - 20;
+		ratingIcon3.scale.x = 0.35;
+		ratingIcon3.scale.y = 0.35;
+		add(ratingIcon3);
+
+		var ratingIcon1:HealthIcon = new HealthIcon("star");
+		ratingIcon1.sprTracker = ratingIcon3;
+		ratingIcon1.offset.x += 242;
+		ratingIcon1.offset.y -= 30;
+		ratingIcon1.scale.x = 0.35;
+		ratingIcon1.scale.y = 0.35;
+		add(ratingIcon1);
+
+		var ratingIcon2:HealthIcon = new HealthIcon("star");
+		ratingIcon2.sprTracker = ratingIcon3;
+		ratingIcon2.offset.x += 202;
+		ratingIcon2.offset.y -= 30;
+		ratingIcon2.scale.x = 0.35;
+		ratingIcon2.scale.y = 0.35;
+		add(ratingIcon2);
+
+		var ratingIcon4:HealthIcon = new HealthIcon("star");
+		ratingIcon4.sprTracker = ratingIcon3;
+		ratingIcon4.offset.x += 122;
+		ratingIcon4.offset.y -= 30;
+		ratingIcon4.scale.x = 0.35;
+		ratingIcon4.scale.y = 0.35;
+		add(ratingIcon4);
+
+		var ratingIcon5:HealthIcon = new HealthIcon("star");
+		ratingIcon5.sprTracker = ratingIcon3;
+		ratingIcon5.offset.x += 82;
+		ratingIcon5.offset.y -= 30;
+		ratingIcon5.scale.x = 0.35;
+		ratingIcon5.scale.y = 0.35;
+		add(ratingIcon5);
+
+		ratingIconArray.push(ratingIcon1);
+		ratingIconArray.push(ratingIcon2);
+		ratingIconArray.push(ratingIcon3);
+		ratingIconArray.push(ratingIcon4);
+		ratingIconArray.push(ratingIcon5);
+
 		add(scoreText);
 
 		missingTextBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -180,9 +234,9 @@ class FreeplayState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, rating:Int)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		songs.push(new SongMetadata(songName, weekNum, songCharacter, color, rating));
 	}
 
 	public function weekIsLocked(name:String):Bool
@@ -575,6 +629,36 @@ class FreeplayState extends MusicBeatState
 				item.alpha = 1;
 		}
 
+		scoreBG.scale.y = (songs[curSelected].rating == 0 || ClientPrefs.data.hideRatings) ? 1 : 2.5;
+		if (songs[curSelected].rating != 0 && !ClientPrefs.data.hideRatings)
+		{
+			ratingText.visible = true;
+			for (icon in ratingIconArray)
+			{
+				if (!icon.visible)
+				{
+					icon.visible = true;
+				}
+
+				if (ratingIconArray.indexOf(icon) < songs[curSelected].rating)
+				{
+					icon.changeIcon("star", true, true);
+				}
+				else
+				{
+					icon.changeIcon("empty-star", true, true);
+				}
+			}
+		}
+		else
+		{
+			ratingText.visible = false;
+			for (icon in ratingIconArray)
+			{
+				icon.visible = false;
+			}
+		}
+
 		Mods.currentModDirectory = songs[curSelected].folder;
 		PlayState.storyWeek = songs[curSelected].week;
 		Difficulty.loadFromWeek();
@@ -611,6 +695,12 @@ class FreeplayState extends MusicBeatState
 
 		mechText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		mechText.x -= mechText.width / 2;
+
+		ratingText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
+		ratingText.x -= ratingText.width / 2;
+
+		ratingIcon3.x = Std.int(scoreBG.x + (scoreBG.width / 2));
+		ratingIcon3.x -= ratingIcon3.width / 2;
 	}
 
 	var _drawDistance:Int = 4;
@@ -666,8 +756,9 @@ class SongMetadata
 	public var color:Int = -7179779;
 	public var folder:String = "";
 	public var lastDifficulty:String = null;
+	public var rating:Int;
 
-	public function new(song:String, week:Int, songCharacter:String, color:Int)
+	public function new(song:String, week:Int, songCharacter:String, color:Int, rating:Int)
 	{
 		this.songName = song;
 		this.week = week;
@@ -676,5 +767,6 @@ class SongMetadata
 		this.folder = Mods.currentModDirectory;
 		if (this.folder == null)
 			this.folder = '';
+		this.rating = rating;
 	}
 }

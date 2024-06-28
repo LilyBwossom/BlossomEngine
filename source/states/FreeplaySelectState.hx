@@ -75,7 +75,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 					{
 						colors = [146, 113, 253];
 					}
-					instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+					instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), song[3]);
 				}
 			}
 			return;
@@ -254,7 +254,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 					{
 						colors = [146, 113, 253];
 					}
-					instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+					instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), song[3]);
 				}
 			}
 		}
@@ -287,7 +287,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				{
 					colors = [146, 113, 253];
 				}
-				instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				instance.addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), song[3]);
 			}
 		}
 	}
@@ -301,6 +301,9 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 	private var grpCategories:FlxTypedGroup<Alphabet>;
 
 	var currentCategoryName:Alphabet;
+	var ratingText:Alphabet;
+	var rating:Alphabet;
+	var starIcon:HealthIcon;
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -324,9 +327,21 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			{
 				name: "all",
 				icon: "dad",
+				rating: "1-5",
 				color: [135, 206, 250],
 				weeks: null,
 				songs: null
+			},
+			{
+				name: "vanilla",
+				icon: "bf",
+				rating: "1-2",
+				color: [135, 206, 250],
+				weeks: null,
+				songs: [
+					"Tutorial", "Bopeebo", "Fresh", "Dad Battle", "Spookeez", "South", "Monster", "Pico", "Philly Nice", "Blammed", "Satin Panties", "High",
+					"Milf", "Cocoa", "Eggnog", "Winter Horrorland", "Senpai", "Roses", "Thorns", "Ugh", "Guns", "Stress"
+				]
 			}
 		];
 
@@ -400,24 +415,38 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		textBG.alpha = 0.6;
 		add(textBG);
 
-		var selectedCategoryText:Alphabet = new Alphabet(0, 10, "Selected Category", true);
+		var selectedCategoryText:Alphabet = new Alphabet(0, 10, "Selected Category :", true);
 		selectedCategoryText.scaleX = 0.5;
 		selectedCategoryText.scaleY = 0.5;
 		selectedCategoryText.screenCenter(X);
 		add(selectedCategoryText);
-
-		var selectedCategoryTextColon:Alphabet = new Alphabet(0, -10, ":", false);
-		selectedCategoryTextColon.scaleX = 0.5;
-		selectedCategoryTextColon.scaleY = 0.5;
-		selectedCategoryTextColon.screenCenter(X);
-		selectedCategoryTextColon.x += 210;
-		add(selectedCategoryTextColon);
 
 		currentCategoryName = new Alphabet(0, 25, "", false);
 		currentCategoryName.scaleX = 0.5;
 		currentCategoryName.scaleY = 0.5;
 		currentCategoryName.screenCenter(X);
 		add(currentCategoryName);
+
+		if (!ClientPrefs.data.hideRatings)
+		{
+			ratingText = new Alphabet(FlxG.width * 0.75, 10, "Difficulty\nRating :", true);
+			ratingText.scaleX = 0.5;
+			ratingText.scaleY = 0.5;
+			add(ratingText);
+
+			rating = new Alphabet(0, 30, "", false);
+			rating.scaleX = 0.5;
+			rating.scaleY = 0.5;
+			// rating.alignment = CENTERED;
+			add(rating);
+
+			starIcon = new HealthIcon("star");
+			starIcon.y = rating.y;
+			starIcon.offset.y += 30;
+			starIcon.scale.x = 0.35;
+			starIcon.scale.y = 0.35;
+			add(starIcon);
+		}
 
 		super.create();
 	}
@@ -439,6 +468,14 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 	{
 		currentCategoryName.text = categories[curSelected].name;
 		currentCategoryName.screenCenter(X);
+
+		if (!ClientPrefs.data.hideRatings)
+		{
+			rating.text = (categories[curSelected].rating != null) ? categories[curSelected].rating : "?";
+
+			rating.x = ratingText.x + 185;
+			starIcon.x = ratingText.x + rating.width + 145;
+		}
 
 		if (FlxG.sound.music.volume < 0.7)
 		{
@@ -603,6 +640,7 @@ typedef CategoryMetaData =
 {
 	name:String,
 	icon:String,
+	?rating:String,
 	color:Array<Int>,
 	weeks:Array<String>,
 	songs:Array<String>,
