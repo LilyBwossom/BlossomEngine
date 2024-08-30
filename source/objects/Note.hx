@@ -1,5 +1,6 @@
 package objects;
 
+import options.NotesSubState;
 import backend.animation.PsychAnimationController;
 import backend.NoteTypesConfig;
 import shaders.RGBPalette;
@@ -248,7 +249,7 @@ class Note extends FlxSprite
 		{
 			texture = '';
 			rgbShader = new RGBShaderReference(this, initializeGlobalRGBShader(noteData));
-			if (PlayState.SONG != null && PlayState.SONG.disableNoteRGB)
+			if ((PlayState.SONG != null && PlayState.SONG.disableNoteRGB) || NotesSubState.isDefaultColors())
 				rgbShader.enabled = false;
 
 			x += swagWidth * (noteData);

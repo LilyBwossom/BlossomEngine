@@ -3320,7 +3320,8 @@ class PlayState extends MusicBeatState
 	}
 
 	function noteMiss(daNote:Note):Void
-	{ // You didn't hit the key and let it go offscreen, also used by Hurt Notes
+	{
+		// You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		// Dupe note remove
 		notes.forEachAlive(function(note:Note)
 		{
@@ -3331,6 +3332,9 @@ class PlayState extends MusicBeatState
 				&& Math.abs(daNote.strumTime - note.strumTime) < 1)
 				invalidateNote(note);
 		});
+
+		if (songName != 'tutorial' || opponentChart || doubleChart)
+			camZooming = true;
 
 		noteMissCommon(daNote.noteData, daNote);
 		var result:Dynamic = callOnLuas('noteMiss', [
@@ -3475,7 +3479,7 @@ class PlayState extends MusicBeatState
 		if (result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll)
 			callOnHScript('opponentNoteHitPre', [note]);
 
-		if (songName != 'tutorial')
+		if (songName != 'tutorial' && !opponentChart && !doubleChart)
 			camZooming = true;
 
 		var opponentChar:Character = dad;
@@ -3551,6 +3555,9 @@ class PlayState extends MusicBeatState
 		var result:Dynamic = callOnLuas('goodNoteHitPre', [notes.members.indexOf(note), leData, leType, isSus]);
 		if (result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll)
 			callOnHScript('goodNoteHitPre', [note]);
+
+		if (songName != 'tutorial' || opponentChart || doubleChart)
+			camZooming = true;
 
 		note.wasGoodHit = true;
 
