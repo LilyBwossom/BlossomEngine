@@ -246,6 +246,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			}
 		];
 
+		var lastCategories:Array<CategoryMetaData> = [];
 		for (mod in Mods.getModDirectories())
 		{
 			var categoriesFolder:String = Paths.mods(mod) + '/categories';
@@ -256,10 +257,22 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 					var jsonCategories:CategoriesMetaData = tjson.TJSON.parse(File.getContent(categoriesFolder + '/' + jsonFile));
 					for (category in jsonCategories.categories)
 					{
-						categories.push(category);
+						if (category.position == "last")
+						{
+							lastCategories.push(category);
+						}
+						else
+						{
+							categories.push(category);
+						}
 					}
 				}
 			}
+		}
+
+		for (lastCategory in lastCategories)
+		{
+			categories.push(lastCategory);
 		}
 
 		persistentUpdate = true;
@@ -548,4 +561,5 @@ typedef CategoryMetaData =
 	color:Array<Int>,
 	weeks:Array<String>,
 	songs:Array<String>,
+	?position:String
 }
