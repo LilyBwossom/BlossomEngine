@@ -18,10 +18,6 @@ class EmptyCategoryState extends MusicBeatState
 
 	override function create()
 	{
-		persistentUpdate = true;
-		PlayState.isStoryMode = false;
-		WeekData.reloadWeekFiles(false);
-
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -30,11 +26,11 @@ class EmptyCategoryState extends MusicBeatState
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.screenCenter();
-		bg.color = FlxColor.fromRGB(FreeplaySelectState.categories[FreeplaySelectState.curSelected].color[0],
-			FreeplaySelectState.categories[FreeplaySelectState.curSelected].color[1], FreeplaySelectState.categories[FreeplaySelectState.curSelected].color[1]);
 		add(bg);
 
-		var emptyText:FlxText = new FlxText(0, FlxG.height * 0.5, 0, "this category contains no songs", 100);
+		WeekData.setDirectoryFromWeek();
+
+		var emptyText:FlxText = new FlxText(0, FlxG.height * 0.4, 0, "this category contains no songs", 100);
 		emptyText.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.BLACK, CENTER);
 		emptyText.screenCenter(X);
 		add(emptyText);
