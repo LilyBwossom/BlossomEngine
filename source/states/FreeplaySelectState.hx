@@ -106,128 +106,6 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				return;
 			}
 		}
-
-		/*
-			switch (WeekName)
-			{
-				case "vanilla":
-					// there is probably a better way to add all vanilla songs but this will do for now
-					addSongs(instance, [
-						"Tutorial", "Bopeebo", "Fresh", "Dad Battle",          "Spookeez",  "South", "Monster",   "Pico", "Philly Nice", "Blammed", "Satin Panties",
-							"High",    "Milf", "Cocoa",     "Eggnog", "Winter Horrorland", "Senpai",   "Roses", "Thorns",         "Ugh",    "Guns",        "Stress"
-					]);
-				case "b-side":
-					addSongs(instance, [
-						"Bopeebo-b", "Fresh-b", "Dadbattle-b", "spookeez-b", "South-b", "Pico-b", "Philly-b", "Blammed-b", "Satin-Panties-b", "High-b", "Milf-b",
-						"Cocoa-b", "Eggnog-b", "Winter-Horrorland-b", "Senpai-b", "Roses-b", "Thorns-b"
-					]);
-				case "erect":
-					addSongs(instance, [
-						"dadbattle-erect",
-						"south-erect",
-						"blammed-erect",
-						"senpai-erect",
-						"roses-erect",
-						"thorns-brightfyre",
-						"thorns-leebert"
-					]);
-				case "creepypasta":
-					addSongs(instance, [
-						"too-slow-fatass-remix",
-						"too-slow-old",
-						"monochrome-fatass-metal-cover",
-						"triple-trouble-fatass-metal-cover",
-						"execution-old",
-						"execution-remix",
-						"sunshine-remix"
-					]);
-				case "sonic":
-					addSongs(instance, ["endless-old", "phantasm", "Prey", "pasta-night"]);
-					addWeek(instance, "thriller gen");
-					addWeek(instance, "replay");
-				case "smoke-em-out-struggle":
-					addSongs(instance, [
-						"Headache", "Nerves", "Release", "Fading", "headache-", "nerves-", "release-", "fading-", "Good Enough", "Lover", "Tug Of War",
-						"Take A Swig of This", "Animal", "Dilemma", "Drowning"
-					]);
-				case "miku":
-					addSongs(instance, ["aishite", "disappearance", "popipo", "ievan polkka"]);
-				case "amongus":
-					addWeek(instance, "redimpostor");
-					addWeek(instance, "mira");
-					addWeek(instance, "skeld");
-					addWeek(instance, "defeat");
-				case "tricky":
-					addSongs(instance, [
-						"Improbable-Outset",
-						"madness",
-						"hellclown",
-						"expurgation",
-						"Expurgation",
-						"improbable-outset-Neutroa",
-						"madness-Neutroa-Remix",
-						"Expurgation-Neutroa-Remix"
-					]);
-				case "hank":
-					addSongs(instance, ["accelerant", "inundation", "gunfight", "sacrifice"]);
-				case "mid-fight-masses":
-					addSongs(instance, ["Parish", "Worship", "Zavodila", "Gospel", "glazomer", "crescendo"]);
-					addWeek(instance, "vsselever");
-					addWeek(instance, "vsselever2");
-				case "sky":
-					addSongs(instance, ["wife-forever", "sky", "manifest"]);
-				case "ski":
-					addSongs(instance, [
-						"Meow",
-						"Foolhardy",
-						"Sporty Ski",
-						"Bopeepow",
-						"Talentless Ski",
-						"No Memes",
-						"Manifest"
-					]);
-				case "tabi":
-					addSongs(instance, ["my-battle", "last-chance", "genocide"]);
-				case "whitty":
-					addSongs(instance, ["lo-fight", "overhead", "ballistic-old"]);
-					addWeek(instance, "whitty_aside");
-				case "fnaf":
-					addWeek(instance, "week87");
-					addWeek(instance, "fnaf1");
-					addWeek(instance, "fnaf2");
-					addWeek(instance, "fnaf3");
-					addWeek(instance, "fnaf4");
-					addWeek(instance, "fnaf5");
-					addWeek(instance, "vs_vloo");
-					addWeek(instance, "bite");
-				case "qt":
-					addWeek(instance, "QT Week");
-				case "herobrine":
-					addWeek(instance, "Herobrine-Week");
-				case "hex":
-					addWeek(instance, "HEXTRAVAGANZA");
-					addWeek(instance, "Encore");
-				case "indie-cross":
-					addWeek(instance, "Cuphead-Week");
-					addWeek(instance, "Sans-Week");
-					addWeek(instance, "Bendy-Week");
-					addWeek(instance, "week-sans-freeplay");
-					addWeek(instance, "BonusSongs-Week");
-					addWeek(instance, "Nightmare-Week");
-					addWeek(instance, "secret_songs_week");
-				case "hotline-024":
-					addWeek(instance, "HL24FP1");
-					addWeek(instance, "HL24FP2");
-					addWeek(instance, "HL24EX");
-					addWeek(instance, "HL24CV");
-					addWeek(instance, "HL24SC1");
-					addWeek(instance, "HL24SC2");
-					addWeek(instance, "HL24SC3");
-					addWeek(instance, "HL24SC404");
-				case "misc":
-					addSongs(instance, ["killer-scream", "foolhardy", "run", "Playtime", "Atrocity"]);
-			};
-		 */
 	}
 
 	public static function addWeek(instance:FreeplayState, name:String)
@@ -249,6 +127,17 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				WeekData.setDirectoryFromWeek(leWeek);
 				for (song in leWeek.songs)
 				{
+					/*
+						try
+						{
+							trace("'" + song[0].replace("-", " ").toLowerCase() + "'" + ", ");
+						}
+						catch (e)
+						{
+							trace(e);
+						}
+					 */
+
 					var colors:Array<Int> = song[2];
 					if (colors == null || colors.length < 3)
 					{
@@ -275,8 +164,20 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			}
 
 			WeekData.setDirectoryFromWeek(leWeek);
+
 			for (song in leWeek.songs)
 			{
+				/*
+					try
+					{
+						trace("'" + song[0].replace("-", " ").toLowerCase() + "'" + ", ");
+					}
+					catch (e)
+					{
+						trace(e);
+					}
+				 */
+
 				if (!songsArray.contains(song[0]))
 				{
 					continue;
@@ -320,7 +221,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			{
 				name: "favorites",
 				icon: "star",
-				color: [255, 255, 51],
+				color: [255, 228, 181],
 				weeks: null,
 				songs: null
 			},
@@ -328,7 +229,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				name: "all",
 				icon: "dad",
 				rating: "1-5",
-				color: [135, 206, 250],
+				color: [147, 112, 219],
 				weeks: null,
 				songs: null
 			},
@@ -360,7 +261,6 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				}
 			}
 		}
-		// FlxColor.fromRGB(category.color[0], category.color[1], category.color[2])
 
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -546,6 +446,10 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 
 			if (categories[curSelected].name == "favorites")
 			{
+				trace("before: " + Favorite.favoriteSongs);
+				Favorite.cleanFavoriteSongs();
+				trace("after: " + Favorite.favoriteSongs);
+
 				if (Favorite.favoriteSongs.length == 0)
 				{
 					MusicBeatState.switchState(new EmptyCategoryState());

@@ -17,12 +17,15 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
+		'download mods',
+		#if MODS_ALLOWED 'manage mods', #end
+		'discord',
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
 		'options'
 	];
+
+	var downloadModsItem:FlxSprite;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -73,6 +76,25 @@ class MainMenuState extends MusicBeatState
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
+
+			if (optionShit[i] == "download mods" || optionShit[i] == "manage mods")
+			{
+				menuItem.scale.set(0.8, 0.8);
+				menuItem.updateHitbox();
+
+				if (optionShit[i] == "download mods")
+				{
+					downloadModsItem = menuItem;
+				}
+			}
+
+			if (optionShit[i] == "discord")
+			{
+				menuItem.scale.set(1.1, 1.1);
+				menuItem.y -= 20;
+				menuItem.updateHitbox();
+			}
+
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
@@ -142,9 +164,14 @@ class MainMenuState extends MusicBeatState
 			if (controls.ACCEPT)
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
-				if (optionShit[curSelected] == 'donate')
+
+				if (optionShit[curSelected] == 'download mods')
 				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					CoolUtil.browserLoad('https://lilybwossom.github.io/aboutme/category-downloads.html');
+				}
+				else if (optionShit[curSelected] == 'discord')
+				{
+					CoolUtil.browserLoad('https://lilybwossom.github.io/aboutme/category-downloads.html');
 				}
 				else
 				{
@@ -163,7 +190,7 @@ class MainMenuState extends MusicBeatState
 								MusicBeatState.switchState(new FreeplaySelectState());
 
 							#if MODS_ALLOWED
-							case 'mods':
+							case 'manage mods':
 								MusicBeatState.switchState(new ModsMenuState());
 							#end
 
@@ -215,6 +242,13 @@ class MainMenuState extends MusicBeatState
 	function changeItem(huh:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
+
+		if (menuItems.members[curSelected] == downloadModsItem)
+		{
+			menuItems.members[curSelected].scale.set(0.8, 0.8);
+			menuItems.members[curSelected].updateHitbox();
+		}
+
 		menuItems.members[curSelected].animation.play('idle');
 		menuItems.members[curSelected].updateHitbox();
 		menuItems.members[curSelected].screenCenter(X);
@@ -225,6 +259,12 @@ class MainMenuState extends MusicBeatState
 			curSelected = 0;
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
+
+		if (menuItems.members[curSelected] == downloadModsItem)
+		{
+			menuItems.members[curSelected].scale.set(0.85, 0.85);
+			menuItems.members[curSelected].updateHitbox();
+		}
 
 		menuItems.members[curSelected].animation.play('selected');
 		menuItems.members[curSelected].centerOffsets();

@@ -39,6 +39,45 @@ class Favorite
 		return Favorite.favoriteSongs.contains(song.songName);
 	}
 
+	public static function cleanFavoriteSongs()
+	{
+		var songFound:Bool;
+		var cleanFavoriteSongs:Array<String> = [];
+
+		WeekData.reloadWeekFiles(false);
+
+		if (favoriteSongs != null)
+		{
+			for (songName in favoriteSongs)
+			{
+				songFound = false;
+				for (i in 0...WeekData.weeksList.length)
+				{
+					if (songFound)
+						break;
+
+					var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
+
+					WeekData.setDirectoryFromWeek(leWeek);
+
+					for (song in leWeek.songs)
+					{
+						if (song[0] == songName)
+						{
+							cleanFavoriteSongs.push(songName);
+							songFound = true;
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		favoriteSongs = cleanFavoriteSongs;
+		FlxG.save.data.favorites = favoriteSongs;
+		FlxG.save.flush();
+	}
+
 	public static function load():Void
 	{
 		if (FlxG.save.data.favorites != null)

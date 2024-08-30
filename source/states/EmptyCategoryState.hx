@@ -38,6 +38,8 @@ class EmptyCategoryState extends MusicBeatState
 		emptyText.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.BLACK, CENTER);
 		emptyText.screenCenter(X);
 		add(emptyText);
+
+		super.create();
 	}
 
 	override function update(elapsed:Float)
