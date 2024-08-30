@@ -1091,11 +1091,15 @@ class PlayState extends MusicBeatState
 			{
 				clearNotesBefore(startOnTime);
 				setSongTime(startOnTime - 350);
+
+				inCountdown = false;
 				return true;
 			}
 			else if (skipCountdown)
 			{
 				setSongTime(0);
+
+				inCountdown = false;
 				return true;
 			}
 			moveCameraSection();
@@ -1818,7 +1822,6 @@ class PlayState extends MusicBeatState
 
 		var introAlts:Array<String> = introAssets.get(stageUI);
 		var antialias:Bool = (ClientPrefs.data.antialiasing && !isPixelStage);
-		var tick:Countdown = THREE;
 		pauseTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
 		{
 			var tick:Countdown = THREE;
@@ -1857,7 +1860,6 @@ class PlayState extends MusicBeatState
 					resetRPC(pauseTimer != null && pauseTimer.finished);
 			}
 
-			stagesFunc(function(stage:BaseStage) stage.countdownTick(tick, swagCounter));
 			swagCounter += 1;
 		}, 5);
 	}
@@ -3804,7 +3806,9 @@ class PlayState extends MusicBeatState
 		if (SONG.notes[curSection] != null)
 		{
 			if (generatedMusic && !endingSong && !isCameraOnForcedPos)
+			{
 				moveCameraSection();
+			}
 
 			if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.data.camZooms)
 			{
