@@ -499,11 +499,11 @@ class Paths
 	inline static public function mods(key:String = '')
 	{
 		if (key == '')
-			return 'mods/';
+			return 'modpacks/';
 
-		var returnString = 'mods/' + key;
+		var returnString = 'modpacks/' + key;
 
-		var modsFolder = 'mods/';
+		var modsFolder = 'modpacks/';
 		if (FileSystem.exists(modsFolder))
 		{
 			for (folderCategory in FileSystem.readDirectory(modsFolder))
@@ -522,7 +522,7 @@ class Paths
 	{
 		var modCategoryFolders:Array<String> = [];
 
-		var modsFolder = 'mods/';
+		var modsFolder = 'modpacks/';
 		if (FileSystem.exists(modsFolder))
 		{
 			for (folderCategory in FileSystem.readDirectory(modsFolder))
@@ -604,7 +604,7 @@ class Paths
 			if (FileSystem.exists(fileToCheck))
 				return fileToCheck;
 		}
-		return 'mods/' + key;
+		return 'modpacks/' + key;
 	}
 	#end
 
