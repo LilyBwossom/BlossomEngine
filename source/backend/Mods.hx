@@ -49,13 +49,19 @@ class Mods
 	{
 		var list:Array<String> = [];
 		#if MODS_ALLOWED
-		var modsFolder:String = Paths.mods();
-		if(FileSystem.exists(modsFolder)) {
-			for (folder in FileSystem.readDirectory(modsFolder))
+		for (i in 0...Paths.modCategories().length)
+		{
+			var modsFolder:String = Paths.modCategories()[i];
+			if (FileSystem.exists(modsFolder))
 			{
-				var path = haxe.io.Path.join([modsFolder, folder]);
-				if (FileSystem.isDirectory(path) && !ignoreModFolders.contains(folder.toLowerCase()) && !list.contains(folder))
-					list.push(folder);
+				for (folder in FileSystem.readDirectory(modsFolder))
+				{
+					var path = haxe.io.Path.join([modsFolder, folder]);
+					if (FileSystem.isDirectory(path) && !ignoreModFolders.contains(folder.toLowerCase()) && !list.contains(folder))
+					{
+						list.push(folder);
+					}
+				}
 			}
 		}
 		#end

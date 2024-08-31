@@ -88,7 +88,8 @@ class WeekData
 		weeksList = [];
 		weeksLoaded.clear();
 		#if MODS_ALLOWED
-		var directories:Array<String> = [Paths.mods(), Paths.getSharedPath()];
+		var directories:Array<String> = Paths.modCategories();
+		directories.push(Paths.getSharedPath());
 		var originalLength:Int = directories.length;
 
 		for (mod in Mods.parseList().enabled)
@@ -114,7 +115,13 @@ class WeekData
 						#if MODS_ALLOWED
 						if (j >= originalLength)
 						{
-							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length - 1);
+							for (i in 0...Paths.modCategories().length)
+							{
+								if (directories[j].startsWith(Paths.modCategories()[i]))
+								{
+									weekFile.folder = directories[j].substring(Paths.modCategories()[i].length, directories[j].length - 1);
+								}
+							}
 						}
 						#end
 
@@ -171,7 +178,13 @@ class WeekData
 				if (i >= originalLength)
 				{
 					#if MODS_ALLOWED
-					weekFile.folder = directory.substring(Paths.mods().length, directory.length - 1);
+					for (i in 0...Paths.modCategories().length)
+					{
+						if (directory.startsWith(Paths.modCategories()[i]))
+						{
+							weekFile.folder = directory.substring(Paths.modCategories()[i].length, directory.length - 1);
+						}
+					}
 					#end
 				}
 				if ((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay))
