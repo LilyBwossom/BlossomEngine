@@ -201,9 +201,9 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 
 	private var grpCategories:FlxTypedGroup<Alphabet>;
 
-	var currentCategoryName:Alphabet;
+	var currentCategoryName:FlxText;
 	var ratingText:Alphabet;
-	var rating:Alphabet;
+	var rating:FlxText;
 	var starIcon:HealthIcon;
 
 	var bg:FlxSprite;
@@ -334,10 +334,11 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 		selectedCategoryText.screenCenter(X);
 		add(selectedCategoryText);
 
-		currentCategoryName = new Alphabet(0, 25, "", false);
-		currentCategoryName.scaleX = 0.5;
-		currentCategoryName.scaleY = 0.5;
+		currentCategoryName = new FlxText(0, 48, "", false);
+		currentCategoryName.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.BLACK, CENTER);
+		currentCategoryName.offset.x = 25;
 		currentCategoryName.screenCenter(X);
+		currentCategoryName.antialiasing = ClientPrefs.data.antialiasing;
 		add(currentCategoryName);
 
 		if (!ClientPrefs.data.hideRatings)
@@ -347,15 +348,15 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			ratingText.scaleY = 0.5;
 			add(ratingText);
 
-			rating = new Alphabet(0, 30, "", false);
-			rating.scaleX = 0.5;
-			rating.scaleY = 0.5;
-			// rating.alignment = CENTERED;
+			rating = new FlxText(0, 50, "", false);
+			rating.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.BLACK, CENTER);
+			// rating.offset.x = 30;
+			rating.antialiasing = ClientPrefs.data.antialiasing;
 			add(rating);
 
 			starIcon = new HealthIcon("star");
 			starIcon.y = rating.y;
-			starIcon.offset.y += 30;
+			starIcon.offset.y += 52;
 			starIcon.scale.x = 0.35;
 			starIcon.scale.y = 0.35;
 			add(starIcon);
@@ -387,7 +388,7 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 			rating.text = (categories[curSelected].rating != null) ? categories[curSelected].rating : "?";
 
 			rating.x = ratingText.x + 185;
-			starIcon.x = ratingText.x + rating.width + 145;
+			starIcon.x = ratingText.x + rating.width + 140;
 		}
 
 		if (FlxG.sound.music.volume < 0.7)

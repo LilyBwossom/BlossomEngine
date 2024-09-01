@@ -20,7 +20,6 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED 'manage mods', #end
 		'discord',
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
 		'options'
 	];
 
@@ -170,7 +169,7 @@ class MainMenuState extends MusicBeatState
 				}
 				else if (optionShit[curSelected] == 'discord')
 				{
-					CoolUtil.browserLoad('https://lilybwossom.github.io/aboutme/category-downloads.html');
+					CoolUtil.browserLoad('https://discord.gg/5bmYjeDDsf');
 				}
 				else
 				{
