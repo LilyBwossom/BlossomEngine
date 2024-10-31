@@ -207,14 +207,14 @@ class FreeplayState extends MusicBeatState
 		Mechanic.loadFromWeek();
 		curMechanic = Math.round(Math.max(0, Mechanic.list.indexOf(lastMechanic)));
 
-		bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
+		bottomBG = new FlxSprite(0, FlxG.height - 52).makeGraphic(FlxG.width, 52, 0xFF000000);
 		bottomBG.alpha = 0.6;
 		add(bottomBG);
 
-		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy / Press ALT to Favorite a Song.";
+		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy\nPress ALT to Favorite a Song / Hold SHIFT and press LEFT or RIGHT to change a Song's Mechanic";
 		bottomString = leText;
 		var size:Int = 15;
-		bottomText = new FlxText(bottomBG.x, bottomBG.y + 4, FlxG.width, leText, size);
+		bottomText = new FlxText(bottomBG.x, bottomBG.y + 8, FlxG.width, leText, size);
 		bottomText.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
 		bottomText.scrollFactor.set();
 		add(bottomText);

@@ -277,6 +277,12 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 					var jsonCategories:CategoriesMetaData = tjson.TJSON.parse(File.getContent(categoriesFolder + '/' + jsonFile));
 					for (category in jsonCategories.categories)
 					{
+						if (Lambda.exists(categories, existingCategory -> existingCategory.name == category.name)
+							|| Lambda.exists(lastCategories, existingCategory -> existingCategory.name == category.name))
+						{
+							continue;
+						}
+
 						if (category.position == "last")
 						{
 							lastCategories.push(category);
