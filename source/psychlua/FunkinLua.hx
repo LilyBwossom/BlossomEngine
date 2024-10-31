@@ -65,8 +65,6 @@ class FunkinLua
 		var game:PlayState = PlayState.instance;
 		game.luaArray.push(this);
 
-		// might have to see if this needs to be changed at some point due to the extra layer of folders in /mods
-		// and this using Paths.mods
 		var myFolder:Array<String> = this.scriptName.split('/');
 		#if MODS_ALLOWED
 		if (myFolder[0] + '/' == Paths.mods()

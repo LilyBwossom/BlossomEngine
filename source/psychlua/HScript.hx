@@ -65,8 +65,6 @@ class HScript extends SScript
 		}
 		#end
 
-		// might have to see if this needs to be changed at some point due to the extra layer of folders in /mods
-		// and this using Paths.mods
 		if (scriptFile != null && scriptFile.length > 0)
 		{
 			this.origin = scriptFile;

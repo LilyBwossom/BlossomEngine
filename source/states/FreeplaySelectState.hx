@@ -240,8 +240,28 @@ import backend.WeekData; #if MODS_ALLOWED import sys.FileSystem; #end class Free
 				color: [135, 206, 250],
 				weeks: null,
 				songs: [
-					"Tutorial", "Bopeebo", "Fresh", "Dad Battle", "Spookeez", "South", "Monster", "Pico", "Philly Nice", "Blammed", "Satin Panties", "High",
-					"Milf", "Cocoa", "Eggnog", "Winter Horrorland", "Senpai", "Roses", "Thorns", "Ugh", "Guns", "Stress"
+					"Tutorial",
+					"Bopeebo",
+					"Fresh",
+					"Dad Battle",
+					"Spookeez",
+					"South",
+					"Monster",
+					"Pico",
+					"Philly Nice",
+					"Blammed",
+					"Satin Panties",
+					"High",
+					"Milf",
+					"Cocoa",
+					"Eggnog",
+					"Winter Horrorland",
+					"Senpai",
+					"Roses",
+					"Thorns",
+					"Ugh",
+					"Guns",
+					"Stress"
 				]
 			}
 		];
